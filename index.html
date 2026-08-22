@@ -26,7 +26,7 @@
   --bg-header: #0b1120;
   --bg-card: #ffffff;
   --bg-card-subtle: #f8fafc;
-  --bg-hero: linear-gradient(135deg, #090e1a 0%, #0f1d36 50%, #081326 100%);
+  --bg-hero: #0b1120;
   --bg-badge: #e0f2fe;
   --bg-quote: #f1f5f9;
   
@@ -70,7 +70,7 @@
   --bg-header: #060911;
   --bg-card: #0e1424;
   --bg-card-subtle: #131c31;
-  --bg-hero: linear-gradient(135deg, #050810 0%, #0c1426 50%, #060a14 100%);
+  --bg-hero: #060911;
   --bg-badge: rgba(0, 163, 255, 0.18);
   --bg-quote: #131c31;
   
@@ -210,101 +210,37 @@ img {
   transform: translateY(-1px);
 }
 
-/* Hero Section */
-.hero-banner-section {
-  background: var(--bg-hero);
-  color: #ffffff;
-  position: relative;
-  overflow: hidden;
-  padding: 3rem 0 4rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.hero-inner-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 14px;
-  background: rgba(0, 163, 255, 0.15);
-  border: 1px solid rgba(0, 163, 255, 0.35);
-  border-radius: var(--radius-full);
-  color: var(--brand-cyan);
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin-bottom: 1.2rem;
-}
-
-.hero-title {
-  font-size: clamp(1.75rem, 3.2vw, 2.45rem);
-  font-weight: 800;
-  line-height: 1.35;
-  color: #ffffff;
-  margin-bottom: 1.1rem;
-}
-
-.hero-subtitle {
-  font-size: 1.05rem;
-  color: #a0aec0;
-  line-height: 1.8;
-  margin-bottom: 1.75rem;
-}
-
-.hero-dots {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.hero-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
-  transition: var(--transition);
-}
-
-.hero-dot.active {
-  width: 24px;
-  border-radius: var(--radius-full);
-  background: var(--brand-cyan);
-  box-shadow: 0 0 10px var(--brand-cyan);
-}
-
-/* Hero Image Container */
-.hero-visual-box {
-  position: relative;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  background: rgba(14, 23, 42, 0.6);
-  border: 1px solid rgba(0, 163, 255, 0.3);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  aspect-ratio: 16 / 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-featured-image {
+/* Top Banner Section with Dedicated Desktop & Mobile Images */
+.hero-image-banner-section {
+  background: #0b1120;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image-banner-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-full-banner-img {
+  width: 100%;
+  height: auto;
   display: block;
+  object-fit: contain;
+  max-height: 540px;
+  margin: 0 auto;
 }
 
 /* Page Layout */
 .main-content-layout {
   max-width: var(--max-content-width);
-  margin: -2rem auto 5rem auto;
+  margin: -1.5rem auto 5rem auto;
   padding: 0 1.25rem;
   position: relative;
   z-index: 2;
@@ -624,69 +560,53 @@ img {
   margin-bottom: 8px;
 }
 
-/* Prominent, Spacious, Interactive Draggable Client Logos Carousel */
-.logos-carousel-container {
-  background: var(--bg-card-subtle);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-xl);
-  padding: 24px 0;
-  margin: 1.5rem 0 2rem 0;
-  overflow: hidden;
-  position: relative;
-}
-
-.logos-marquee-wrapper {
+/* Open, Borderless, Free-Flowing Moving Client Logos Carousel */
+.logos-free-flow-wrapper {
   overflow: hidden;
   width: 100%;
   position: relative;
-  display: flex;
+  margin: 1.5rem 0 1.25rem 0;
+  padding: 12px 0;
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
-  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
 }
 
-.logos-marquee-wrapper:active {
+.logos-free-flow-wrapper:active {
   cursor: grabbing;
 }
 
 .logos-marquee-track {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 36px;
   width: max-content;
   will-change: transform;
 }
 
-.client-logo-pill {
-  width: 175px;
-  height: 88px;
-  background: var(--bg-card);
-  border: 1.5px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 12px 20px;
+.client-logo-item {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 8px 12px;
+  transition: transform 0.2s ease;
 }
 
-.client-logo-pill:hover {
-  border-color: var(--brand-cyan);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+.client-logo-item:hover {
+  transform: scale(1.08);
 }
 
 .client-logo-img {
-  max-width: 100%;
-  max-height: 60px;
+  max-height: 64px;
+  max-width: 160px;
   width: auto;
   height: auto;
   object-fit: contain;
   pointer-events: none;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.05));
 }
 
 /* Strategic Pillars 2x2 Grid */
@@ -877,11 +797,6 @@ img {
     --font-scale: 0.94;
   }
 
-  .hero-inner-container {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-
   .stats-cards-row {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -889,10 +804,6 @@ img {
   .article-main-card {
     padding: 1.75rem 1.15rem 2.5rem 1.15rem;
     border-radius: var(--radius-lg);
-  }
-
-  .hero-banner-section {
-    padding: 2.25rem 0 3rem 0;
   }
 
   .article-badges-row {
@@ -920,14 +831,13 @@ img {
     font-size: 0.76rem;
   }
 
-  .client-logo-pill {
-    width: 148px;
-    height: 78px;
-    padding: 10px 14px;
+  .logos-marquee-track {
+    gap: 22px;
   }
 
   .client-logo-img {
-    max-height: 52px;
+    max-height: 50px;
+    max-width: 125px;
   }
 }
 
@@ -941,14 +851,13 @@ img {
     font-size: 0.74rem;
   }
 
-  .client-logo-pill {
-    width: 138px;
-    height: 72px;
-    padding: 8px 12px;
+  .logos-marquee-track {
+    gap: 18px;
   }
 
   .client-logo-img {
-    max-height: 46px;
+    max-height: 44px;
+    max-width: 110px;
   }
 }
 
@@ -987,36 +896,17 @@ img {
     </div>
   </header>
 
-  <!-- Hero Featured Article Banner with User-Provided Image -->
-  <section class="hero-banner-section">
-    <div class="hero-inner-container">
-      
-      <!-- Text Side -->
-      <div class="hero-text-col">
-        <div class="hero-badge">
-          <span>•</span>
-          <span>رؤية & مستقبل</span>
-        </div>
-        
-        <h1 class="hero-title">من وادي السيليكون إلى شنغهاي: خارطة طريق الأردن في عصر الذكاء الاصطناعي الفيزيائي</h1>
-        
-        <p class="hero-subtitle">محطتان استراتيجيتان ترسمان ملامح رؤية وطنية موحدة لمستقبل يقوده الذكاء الاصطناعي والروبوتات.</p>
-        
-        <div class="hero-dots">
-          <span class="hero-dot active"></span>
-          <span class="hero-dot"></span>
-          <span class="hero-dot"></span>
-          <span class="hero-dot"></span>
-        </div>
-      </div>
-
-      <!-- Real Image Provided by User -->
-      <div class="hero-visual-box">
-        <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/King%20Abdullah%20II%20%20-%20%20Robotics%20Company%20Visit%20Shanghai%20(1).jpeg" 
-             alt="زيارة جلالة الملك عبدالله الثاني لكبرى شركات الروبوتات في شنغهاي" 
-             class="hero-featured-image">
-      </div>
-
+  <!-- Dedicated Top Image Banner (Desktop & Mobile Specific Banners) -->
+  <section class="hero-image-banner-section">
+    <div class="hero-image-banner-container">
+      <picture>
+        <!-- Mobile Specific Banner -->
+        <source media="(max-width: 768px)" srcset="https://uploads.onecompiler.io/44krdug5q/44yyyytca/%D9%85%D9%86%20%D9%88%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B3%D9%8A%D9%84%D9%8A%D9%83%D9%88%D9%86%20%D8%A5%D9%84%D9%89%20%D8%B4%D9%86%D8%BA%D9%87%D8%A7%D9%8A%20%D8%AE%D8%A7%D8%B1%D8%B7%D8%A9%20%D8%B7%D8%B1%D9%8A%D9%82%20%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%86%20%D9%81%D9%8A%20%D8%B9%D8%B5%D8%B1%20%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1%20%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A%20%D8%A7%D9%84%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A6%D9%8A%20(1).png">
+        <!-- Desktop Specific Banner -->
+        <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/%D9%85%D9%86%20%D9%88%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B3%D9%8A%D9%84%D9%8A%D9%83%D9%88%D9%86%20%D8%A5%D9%84%D9%89%20%D8%B4%D9%86%D8%BA%D9%87%D8%A7%D9%8A%20%D8%AE%D8%A7%D8%B1%D8%B7%D8%A9%20%D8%B7%D8%B1%D9%8A%D9%82%20%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%86%20%D9%81%D9%8A%20%D8%B9%D8%B5%D8%B1%20%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1%20%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A%20%D8%A7%D9%84%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A6%D9%8A.png" 
+             alt="من وادي السيليكون إلى شنغهاي: خارطة طريق الأردن في عصر الذكاء الاصطناعي الفيزيائي" 
+             class="hero-full-banner-img">
+      </picture>
     </div>
   </section>
 
@@ -1038,7 +928,7 @@ img {
           <!-- Badges: Date, 10 Minutes, Category -->
           <div class="article-badges-row">
             <span class="badge-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
               <span>20 أغسطس 2026</span>
             </span>
             <span class="badge-item">
@@ -1215,71 +1105,69 @@ img {
             <p class="project-text-content">سلطة منطقة العقبة الاقتصادية الخاصة (ASEZA): توظيف روبوت تفاعلي مخصص للتواصل مع المستثمرين الأجانب والمحليين، وتقديم شروحات تفاعلية حول المزايا والحوافز الاستثمارية المتاحة وعرض مقومات البيئة الاقتصادية الجاذبة في العقبة.</p>
           </div>
 
-          <!-- 7. Many Other Companies & Large Interactive Client Logos Carousel -->
+          <!-- 7. Many Other Companies & Open Free-Flowing Moving Client Logos Carousel -->
           <div class="project-item-card">
-            <p class="project-text-content" style="font-weight:700; margin-bottom:12px;">والعديد من الشركات والمؤسسات الرائدة الأخرى:</p>
+            <p class="project-text-content" style="font-weight:700; margin-bottom:4px;">والعديد من الشركات والمؤسسات الرائدة الأخرى:</p>
             
-            <!-- Spacious Interactive Draggable/Swipable Carousel of All 9 Client Logos -->
-            <div class="logos-carousel-container">
-              <div class="logos-marquee-wrapper">
-                <div class="logos-marquee-track">
-                  <!-- Set 1 of Client Logos -->
-                  <div class="client-logo-pill" title="Orange">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Orange%20Logo.png" alt="Orange" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="Zain">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Zain%20Logo.png" alt="Zain" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="مديرية الأمن العام">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/PSD%20Logo.jpeg" alt="PSD" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="Centro Stores">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Centro%20Stores%20Logo.jpeg" alt="Centro Stores" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="بنك الإسكان">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Housing%20Bank%20Logo.jpg.jpeg" alt="Housing Bank" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="فندق هيلتون عمان">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Hilton%20Amman%20Logo.jpeg" alt="Hilton Amman" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="المستشفى التخصصي">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Specialty%20Hospital%20Logo.png" alt="Specialty Hospital" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="جامعة الزيتونة">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/ZUJ%20Logo.png" alt="ZUJ" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="MCE Logo">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/MCE%20Logo.png" alt="MCE" class="client-logo-img">
-                  </div>
+            <!-- Open Borderless Free-flowing Moving Marquee of All 9 Client Logos -->
+            <div class="logos-free-flow-wrapper">
+              <div class="logos-marquee-track">
+                <!-- Set 1 of Client Logos -->
+                <div class="client-logo-item" title="Orange">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Orange%20Logo.png" alt="Orange" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="Zain">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Zain%20Logo.png" alt="Zain" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="مديرية الأمن العام">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/PSD%20Logo.jpeg" alt="PSD" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="Centro Stores">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Centro%20Stores%20Logo.jpeg" alt="Centro Stores" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="بنك الإسكان">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Housing%20Bank%20Logo.jpg.jpeg" alt="Housing Bank" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="فندق هيلتون عمان">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Hilton%20Amman%20Logo.jpeg" alt="Hilton Amman" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="المستشفى التخصصي">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Specialty%20Hospital%20Logo.png" alt="Specialty Hospital" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="جامعة الزيتونة">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/ZUJ%20Logo.png" alt="ZUJ" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="MCE Logo">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/MCE%20Logo.png" alt="MCE" class="client-logo-img">
+                </div>
 
-                  <!-- Set 2 for Seamless Continuous Loop -->
-                  <div class="client-logo-pill" title="Orange">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Orange%20Logo.png" alt="Orange" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="Zain">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Zain%20Logo.png" alt="Zain" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="مديرية الأمن العام">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/PSD%20Logo.jpeg" alt="PSD" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="Centro Stores">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Centro%20Stores%20Logo.jpeg" alt="Centro Stores" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="بنك الإسكان">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Housing%20Bank%20Logo.jpg.jpeg" alt="Housing Bank" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="فندق هيلتون عمان">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Hilton%20Amman%20Logo.jpeg" alt="Hilton Amman" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="المستشفى التخصصي">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Specialty%20Hospital%20Logo.png" alt="Specialty Hospital" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="جامعة الزيتونة">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/ZUJ%20Logo.png" alt="ZUJ" class="client-logo-img">
-                  </div>
-                  <div class="client-logo-pill" title="MCE Logo">
-                    <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/MCE%20Logo.png" alt="MCE" class="client-logo-img">
-                  </div>
+                <!-- Set 2 for Seamless Continuous Loop -->
+                <div class="client-logo-item" title="Orange">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Orange%20Logo.png" alt="Orange" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="Zain">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Zain%20Logo.png" alt="Zain" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="مديرية الأمن العام">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/PSD%20Logo.jpeg" alt="PSD" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="Centro Stores">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Centro%20Stores%20Logo.jpeg" alt="Centro Stores" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="بنك الإسكان">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Housing%20Bank%20Logo.jpg.jpeg" alt="Housing Bank" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="فندق هيلتون عمان">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Hilton%20Amman%20Logo.jpeg" alt="Hilton Amman" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="المستشفى التخصصي">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Specialty%20Hospital%20Logo.png" alt="Specialty Hospital" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="جامعة الزيتونة">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/ZUJ%20Logo.png" alt="ZUJ" class="client-logo-img">
+                </div>
+                <div class="client-logo-item" title="MCE Logo">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/MCE%20Logo.png" alt="MCE" class="client-logo-img">
                 </div>
               </div>
             </div>
@@ -1442,7 +1330,7 @@ img {
 /**
  * Interactive Script for Jordan Robotics Strategy Article
  * Handles dynamic font scaling, pinned action bar, WhatsApp direct chat, Web Share API,
- * and Draggable Touch-enabled Infinite Logo Carousel.
+ * and Free-flow Draggable Touch-enabled Logo Carousel.
  */
 
 const WHITE_LOGO_URL = 'https://uploads.onecompiler.io/43n8uttmw/1787401723231/unnamed%20(2).png';
@@ -1453,7 +1341,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFontScaler();
   initSocialSharing();
   initBookmarks();
-  initInteractiveDraggableLogos();
+  initFreeFlowDraggableLogos();
 });
 
 /* 1. Theme Management */
@@ -1639,14 +1527,14 @@ function initBookmarks() {
   }
 }
 
-/* 6. Interactive Draggable & Swipable Continuous Carousel */
-function initInteractiveDraggableLogos() {
-  const wrapper = document.querySelector('.logos-marquee-wrapper');
+/* 6. Free-Flowing Draggable & Swipable Continuous Carousel */
+function initFreeFlowDraggableLogos() {
+  const wrapper = document.querySelector('.logos-free-flow-wrapper');
   const track = document.querySelector('.logos-marquee-track');
   if (!wrapper || !track) return;
 
   let currentOffset = 0;
-  const speed = 0.85; // Continuous scroll speed
+  const speed = 0.85; // Auto-scroll speed
   let isDragging = false;
   let startX = 0;
   let dragStartOffset = 0;
@@ -1656,7 +1544,6 @@ function initInteractiveDraggableLogos() {
     halfWidth = track.scrollWidth / 2;
   }
 
-  // Calculate halfWidth after images load
   window.addEventListener('load', updateDimensions);
   setTimeout(updateDimensions, 400);
 
