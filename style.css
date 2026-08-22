@@ -13,7 +13,7 @@
   --bg-card: #ffffff;
   --bg-card-subtle: #f8fafc;
   --bg-hero: linear-gradient(135deg, #090e1a 0%, #0f1d36 50%, #081326 100%);
-  --bg-badge: rgba(0, 163, 255, 0.12);
+  --bg-badge: #e0f2fe;
   --bg-quote: #f1f5f9;
   
   --text-primary: #0f172a;
@@ -22,10 +22,10 @@
   --text-light: #94a3b8;
   --text-white: #ffffff;
   
-  --brand-primary: #0088cc;
+  --brand-primary: #0284c7;
   --brand-cyan: #00a3ff;
   --brand-cyan-glow: rgba(0, 163, 255, 0.25);
-  --brand-gradient: linear-gradient(135deg, #0088cc 0%, #00a3ff 100%);
+  --brand-gradient: linear-gradient(135deg, #0284c7 0%, #00a3ff 100%);
   --brand-gold: #d97706;
   --brand-gold-bg: rgba(217, 119, 6, 0.08);
   
@@ -57,7 +57,7 @@
   --bg-card: #0e1424;
   --bg-card-subtle: #131c31;
   --bg-hero: linear-gradient(135deg, #050810 0%, #0c1426 50%, #060a14 100%);
-  --bg-badge: rgba(0, 163, 255, 0.15);
+  --bg-badge: rgba(0, 163, 255, 0.18);
   --bg-quote: #131c31;
   
   --text-primary: #f8fafc;
@@ -156,7 +156,6 @@ img {
   justify-content: space-between;
 }
 
-/* Scaled down Logo */
 .nav-logo-link {
   display: flex;
   align-items: center;
@@ -164,7 +163,7 @@ img {
 }
 
 .logo-img {
-  height: 32px; /* Smaller elegant size as requested */
+  height: 32px;
   width: auto;
   object-fit: contain;
   transition: var(--transition);
@@ -212,7 +211,7 @@ img {
   margin: 0 auto;
   padding: 0 1.5rem;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 2.5rem;
   align-items: center;
 }
@@ -267,26 +266,28 @@ img {
   box-shadow: 0 0 10px var(--brand-cyan);
 }
 
+/* Hero Image Container */
 .hero-visual-box {
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
   background: rgba(14, 23, 42, 0.6);
-  border: 1px solid rgba(0, 163, 255, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  min-height: 280px;
+  border: 1px solid rgba(0, 163, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  aspect-ratio: 16 / 10;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.hero-svg-art {
+.hero-featured-image {
   width: 100%;
   height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-/* Page Layout: Focused Center Column */
+/* Page Layout */
 .main-content-layout {
   max-width: var(--max-content-width);
   margin: -2rem auto 5rem auto;
@@ -311,11 +312,10 @@ img {
   margin-bottom: 2rem;
 }
 
+/* Top Meta Row (Author + Badges) */
 .article-top-meta {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 12px;
   margin-bottom: 1.5rem;
 }
@@ -323,12 +323,12 @@ img {
 .author-info-group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .author-avatar-circle {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--brand-gradient);
   display: flex;
@@ -336,36 +336,49 @@ img {
   justify-content: center;
   color: #ffffff;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .author-name {
   font-weight: 700;
   font-size: 0.95rem;
   color: var(--text-primary);
+  white-space: nowrap;
 }
 
+/* Badges Row - Matching screenshot exactly */
 .article-badges-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   color: var(--text-muted);
   font-size: 0.88rem;
   font-weight: 500;
+  white-space: nowrap;
+  flex-wrap: nowrap;
 }
 
 .badge-item {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  white-space: nowrap;
 }
 
 .category-pill {
-  color: var(--brand-primary);
+  color: #0284c7;
   background: var(--bg-badge);
-  padding: 4px 10px;
+  padding: 4px 14px;
   border-radius: var(--radius-full);
   font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .category-pill {
+  color: #38bdf8;
 }
 
 .article-main-title {
@@ -376,7 +389,7 @@ img {
   margin-bottom: 1.25rem;
 }
 
-/* Dynamic Font Resizing applied to content */
+/* Dynamic Font Resizing */
 .article-lead-text {
   font-size: calc(1.08rem * var(--font-scale));
   line-height: 2;
@@ -759,7 +772,7 @@ img {
   transform: translateY(-2px);
 }
 
-/* Pinned Bottom Floating Bar (Strictly fixed at bottom) */
+/* Pinned Bottom Floating Bar */
 .floating-mobile-bar {
   position: fixed;
   bottom: 16px;
@@ -831,7 +844,6 @@ img {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   :root {
-    /* Mobile font scale defaults slightly more compact as requested */
     --font-scale: 0.94;
   }
 
@@ -845,7 +857,7 @@ img {
   }
 
   .article-main-card {
-    padding: 1.75rem 1.25rem 2.5rem 1.25rem;
+    padding: 1.75rem 1.15rem 2.5rem 1.15rem;
     border-radius: var(--radius-lg);
   }
 
@@ -853,14 +865,40 @@ img {
     padding: 2.25rem 0 3rem 0;
   }
 
-  .article-top-meta {
-    flex-direction: column;
-    align-items: flex-start;
+  /* Keep metadata clean and unified on mobile */
+  .article-badges-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow-x: auto;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+
+  .article-badges-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .badge-item {
+    gap: 4px;
+    font-size: 0.78rem;
+  }
+
+  .category-pill {
+    padding: 4px 10px;
+    font-size: 0.76rem;
   }
 }
 
 @media (max-width: 480px) {
   .stats-cards-row {
     grid-template-columns: 1fr;
+  }
+
+  .article-badges-row {
+    gap: 8px;
+    font-size: 0.74rem;
   }
 }
