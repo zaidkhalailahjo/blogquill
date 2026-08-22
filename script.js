@@ -76,7 +76,6 @@ function initReadingProgressBar() {
 
 /* 3. Robust Font Scaler Engine */
 function initFontScaler() {
-  // Preset scale values and Arabic labels
   const scaleLevels = [
     { scale: 0.92, label: 'حجم الخط: مدمج للهاتف (92%)' },
     { scale: 1.00, label: 'حجم الخط: عادي (100%)' },
@@ -87,7 +86,7 @@ function initFontScaler() {
 
   let currentLevel = parseInt(localStorage.getItem('font_scale_level') || '0', 10);
   if (isNaN(currentLevel) || currentLevel < 0 || currentLevel >= scaleLevels.length) {
-    currentLevel = 0; // Default to mobile compact
+    currentLevel = 0;
   }
 
   applyScale(currentLevel, false);
@@ -110,7 +109,7 @@ function initFontScaler() {
   }
 }
 
-/* 4. Social Sharing */
+/* 4. Social Sharing & Links */
 function initSocialSharing() {
   const url = window.location.href;
   const title = document.title;
@@ -125,22 +124,21 @@ function initSocialSharing() {
   document.querySelectorAll('.share-btn-fb').forEach(b => {
     b.addEventListener('click', (e) => {
       e.preventDefault();
-      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+      window.open('https://www.facebook.com/share/1DvoSJKAPp/?mibextid=wwXIfr', '_blank');
     });
   });
 
   document.querySelectorAll('.share-btn-in').forEach(b => {
     b.addEventListener('click', (e) => {
       e.preventDefault();
-      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+      window.open('https://www.linkedin.com/company/quillworld2/', '_blank');
     });
   });
 
   document.querySelectorAll('.share-btn-ig').forEach(b => {
     b.addEventListener('click', (e) => {
       e.preventDefault();
-      // Placeholder for Instagram profile or share
-      window.open('https://instagram.com', '_blank');
+      window.open('https://www.instagram.com/quilltechnologies/', '_blank');
     });
   });
 
