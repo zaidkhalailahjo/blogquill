@@ -14,7 +14,7 @@
   <style>
 /* ==========================================================================
    Modern Editorial Theme - Jordan Robotics Strategy
-   نسخة مخصصة محسنة وسريعة الاستجابة بالكامل مع تأثيرات الظهور عند التمرير
+   نسخة مخصصة محسنة وسريعة الاستجابة بالكامل مع قوائم الأكورديون التفاعلية
    ========================================================================== */
 
 :root {
@@ -40,8 +40,6 @@
   --brand-cyan: #00a3ff;
   --brand-cyan-glow: rgba(0, 163, 255, 0.25);
   --brand-gradient: linear-gradient(135deg, #0284c7 0%, #00a3ff 100%);
-  --brand-gold: #d97706;
-  --brand-gold-bg: rgba(217, 119, 6, 0.08);
   
   --border-color: #e2e8f0;
   --border-subtle: #edf2f7;
@@ -522,31 +520,49 @@ img {
   line-height: 1.4;
 }
 
-/* Project Case Study Cards */
-.project-cards-stack {
+/* Accordion Group for Projects / Case Studies */
+.project-accordion-group {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
   margin: 1.75rem 0;
 }
 
-.project-item-card {
+.accordion-item {
   background: var(--bg-card-subtle);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 22px 24px;
+  overflow: hidden;
   transition: var(--transition);
 }
 
-.project-item-card:hover {
+.accordion-item:hover {
+  border-color: var(--brand-cyan);
+}
+
+.accordion-item.is-open {
   background: var(--bg-card);
   border-color: var(--brand-cyan);
   box-shadow: var(--shadow-md);
 }
 
-.project-item-card.award-special {
-  background: var(--brand-gold-bg);
-  border-right: 4px solid var(--brand-gold);
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: right;
+  font-family: inherit;
+  color: inherit;
+  user-select: none;
+}
+
+.accordion-trigger .project-header-badge {
+  margin-bottom: 0;
 }
 
 .project-header-badge {
@@ -557,7 +573,35 @@ img {
   font-weight: 700;
   font-size: 1.02rem;
   color: var(--brand-primary);
-  margin-bottom: 10px;
+}
+
+.accordion-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-primary);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
+.accordion-item.is-open .accordion-arrow {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-item.is-open .accordion-content {
+  grid-template-rows: 1fr;
+}
+
+.accordion-inner {
+  overflow: hidden;
+  padding: 0 22px 20px 22px;
 }
 
 /* Crown Prince Image Card Visual */
@@ -565,11 +609,11 @@ img {
   width: 100%;
   border-radius: var(--radius-md);
   overflow: hidden;
-  margin: 10px 0 14px 0;
+  margin: 8px 0 14px 0;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-sm);
   background: #090e1a;
-  max-height: 380px;
+  max-height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -578,7 +622,7 @@ img {
 .project-card-image {
   width: 100%;
   height: auto;
-  max-height: 380px;
+  max-height: 420px;
   object-fit: cover;
   object-position: center 15%;
   display: block;
@@ -589,8 +633,8 @@ img {
   overflow: hidden;
   width: 100%;
   position: relative;
-  margin: 1.5rem 0 1.25rem 0;
-  padding: 12px 0;
+  margin: 1.25rem 0 0.5rem 0;
+  padding: 10px 0;
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
@@ -868,12 +912,20 @@ img {
     font-size: 0.76rem;
   }
 
+  .accordion-trigger {
+    padding: 16px 16px;
+  }
+
+  .accordion-inner {
+    padding: 0 16px 18px 16px;
+  }
+
   .project-featured-visual {
-    max-height: 240px;
+    max-height: 260px;
   }
 
   .project-card-image {
-    max-height: 240px;
+    max-height: 260px;
   }
 
   .logos-marquee-track {
@@ -973,7 +1025,7 @@ img {
           <!-- Badges: Date, 10 Minutes, Category -->
           <div class="article-badges-row">
             <span class="badge-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
               <span>20 أغسطس 2026</span>
             </span>
             <span class="badge-item">
@@ -1087,150 +1139,242 @@ img {
         </div>
       </section>
 
-      <!-- Section 2: Exact reordered milestones with Crown Prince Foundation First -->
+      <!-- Section 2: Interactive Single-Open Accordion with Arrows -->
       <section id="sec-2">
         <h2 class="content-section-title reveal-on-scroll">٢. الريادة المبكرة والتطبيقات العملية في السوق الأردني</h2>
         
         <p class="content-paragraph reveal-on-scroll">لم يكن السوق الأردني بمعزل عن هذا التوجه التكنولوجي الاستباقي؛ فمنذ عام ٢٠٢١، سجل الأردن دخوله العملي الفعلي لهذا المجال عبر شركة كويل –  ,Quill وهي شركة وطنية رائدة في والأولى في من نوعها في الأردن، التي بدأت كأول جهة تُدخل الروبوتات الخدمية والتجارية إلى بيئة الأعمال الأردنية. هذا التبني المبكر ساهم بشكل ملموس في تغيير الوعي المحلي تجاه الروبوتات، ناقلاً إياها من مجرد نماذج تجريبية أو مشاريع بحثية أكاديمية محدودة إلى أدوات تشغيلية حقيقية تقدم حلولاً لأتمتة المهام وتسهيل الأعمال. وقد حققت شركة كويل - Quill ريادة حقيقية على الأرض عبر محفظة واسعة من التطبيقات والمشاريع المرجعية البارزة في المملكة، والتي تشمل:</p>
 
-        <!-- Stacked Case Studies in Exact User Order -->
-        <div class="project-cards-stack">
+        <!-- Interactive Single-Open Accordion Group -->
+        <div class="project-accordion-group">
           
-          <!-- 1. Crown Prince Foundation (Placed FIRST above QAIA as requested) with Image -->
-          <div class="project-item-card reveal-on-scroll">
-            <div class="project-header-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <span>مؤسسة ولي العهد (Crown Prince Foundation)</span>
+          <!-- 1. Crown Prince Foundation (Open by default with new image 52) -->
+          <div class="accordion-item is-open reveal-on-scroll">
+            <button class="accordion-trigger" type="button" aria-expanded="true">
+              <div class="project-header-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>مؤسسة ولي العهد (Crown Prince Foundation)</span>
+              </div>
+              <span class="accordion-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <!-- Updated Crown Prince Image (52) -->
+                <div class="project-featured-visual">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/HRH%20Prince%20AlHussain%20Bin%20Abdullah%20II52.PNG" 
+                       alt="صاحب السمو الملكي الأمير الحسين بن عبدالله الثاني ولي العهد" 
+                       class="project-card-image">
+                </div>
+                <p class="project-text-content">مؤسسة ولي العهد (Crown Prince Foundation): في لفتة رمزية تجسد ثقة القيادة بالحلول المستقبلية، استخدم صاحب السمو الملكي الأمير الحسين بن عبدالله الثاني، ولي العهد، روبوتاً ذكياً ومبرمجاً لتدشين وإطلاق الهوية البصرية الجديدة لمؤسسة ولي العهد.</p>
+              </div>
             </div>
-            <!-- Elegant Image for Crown Prince Foundation -->
-            <div class="project-featured-visual">
-              <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/HRH%20Prince%20AlHussain%20Bin%20Abdullah%20II.PNG" 
-                   alt="صاحب السمو الملكي الأمير الحسين بن عبدالله الثاني ولي العهد" 
-                   class="project-card-image">
-            </div>
-            <p class="project-text-content">مؤسسة ولي العهد (Crown Prince Foundation): في لفتة رمزية تجسد ثقة القيادة بالحلول المستقبلية، استخدم صاحب السمو الملكي الأمير الحسين بن عبدالله الثاني، ولي العهد، روبوتاً ذكياً ومبرمجاً لتدشين وإطلاق الهوية البصرية الجديدة لمؤسسة ولي العهد.</p>
           </div>
 
-          <!-- 2. Queen Alia International Airport -->
-          <div class="project-item-card award-special reveal-on-scroll">
-            <div class="project-header-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <span>مطار الملكة علياء الدولي (QAIA)</span>
+          <!-- 2. Queen Alia International Airport (Standard clean color like the others) -->
+          <div class="accordion-item reveal-on-scroll">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <div class="project-header-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>مطار الملكة علياء الدولي (QAIA)</span>
+              </div>
+              <span class="accordion-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p class="project-text-content">مطار الملكة علياء الدولي (QAIA): توريد وتشغيل 4 روبوتات تنظيف ذكية وذاتية الحركة كأول خدمة روبوتية متميزة من نوعها على مستوى مطارات المنطقة، لتعزيز الكفاءة التشغيلية والالتزام بمعايير الاستدامة دون تداخل بشري مباشر. وقد توج هذا المشروع الريادي بجائزة عالمية مرموقة، حيث فاز نظام التنظيف الذكي المطبق بالمطار بجائزة الابتكار التقني لعام 2025 (Technical Innovation Award 2025) من مجلس المطارات الدولي (ACI) بالشراكة مع شركة "أماديوس" (Amadeus)، وذلك عن فئة "أفضل ابتكار في إدارة عمليات المطارات والتجهيزات"، وجرى تسليم الجائزة رسمياً خلال فعاليات مؤتمر "ابتكارات المطارات" في مدينة بوسان بجمهورية كوريا.</p>
+              </div>
             </div>
-            <p class="project-text-content">مطار الملكة علياء الدولي (QAIA): توريد وتشغيل 4 روبوتات تنظيف ذكية وذاتية الحركة كأول خدمة روبوتية متميزة من نوعها على مستوى مطارات المنطقة، لتعزيز الكفاءة التشغيلية والالتزام بمعايير الاستدامة دون تداخل بشري مباشر. وقد توج هذا المشروع الريادي بجائزة عالمية مرموقة، حيث فاز نظام التنظيف الذكي المطبق بالمطار بجائزة الابتكار التقني لعام 2025 (Technical Innovation Award 2025) من مجلس المطارات الدولي (ACI) بالشراكة مع شركة "أماديوس" (Amadeus)، وذلك عن فئة "أفضل ابتكار في إدارة عمليات المطارات والتجهيزات"، وجرى تسليم الجائزة رسمياً خلال فعاليات مؤتمر "ابتكارات المطارات" في مدينة بوسان بجمهورية كوريا.</p>
           </div>
 
           <!-- 3. Abdali Boulevard -->
-          <div class="project-item-card reveal-on-scroll">
-            <div class="project-header-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-              <span>بوليفارد العبدلي (Abdali Boulevard)</span>
+          <div class="accordion-item reveal-on-scroll">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <div class="project-header-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                <span>بوليفارد العبدلي (Abdali Boulevard)</span>
+              </div>
+              <span class="accordion-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p class="project-text-content">بوليفارد العبدلي (Abdali Boulevard): إطلاق أول مشروع متكامل في الأردن بنظام "الروبوت كخدمة" (Robot-as-a-Service - RaaS). ويشمل المشروع تشغيل روبوت جلي وتلميع ذكي (Scrubbing Robot) لتنظيف مواقف السيارات الكبرى، إلى جانب روبوت كنس وتنظيف ذكي (Sweeping Robot) لتغطية الممرات والمماشي الخارجية والساحات المحيطة بالبوليفارد، مما يحقق كفاءة تشغيلية عالية وحلولاً مؤتمتة بالكامل لإدارة المرافق.</p>
+              </div>
             </div>
-            <p class="project-text-content">بوليفارد العبدلي (Abdali Boulevard): إطلاق أول مشروع متكامل في الأردن بنظام "الروبوت كخدمة" (Robot-as-a-Service - RaaS). ويشمل المشروع تشغيل روبوت جلي وتلميع ذكي (Scrubbing Robot) لتنظيف مواقف السيارات الكبرى، إلى جانب روبوت كنس وتنظيف ذكي (Sweeping Robot) لتغطية الممرات والمماشي الخارجية والساحات المحيطة بالبوليفارد، مما يحقق كفاءة تشغيلية عالية وحلولاً مؤتمتة بالكامل لإدارة المرافق.</p>
           </div>
 
           <!-- 4. Specialty Hospital -->
-          <div class="project-item-card reveal-on-scroll">
-            <div class="project-header-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-              <span>المستشفى التخصصي (Specialty Hospital)</span>
+          <div class="accordion-item reveal-on-scroll">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <div class="project-header-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                <span>المستشفى التخصصي (Specialty Hospital)</span>
+              </div>
+              <span class="accordion-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p class="project-text-content">المستشفى التخصصي (Specialty Hospital): تشغيل أول روبوت استقبال تفاعلي مدعوم بالذكاء الاصطناعي في القطاع الصحي بالأردن. وقد نجح هذا الروبوت في حل مشكلة جوهرية كانت تواجه المراجعين والمتمثلة في عدم معرفة الاتجاهات وكثرة الاستفسارات المتكررة التي كانت تشتت موظفي قسم القبول عن مهامهم الأساسية؛ حيث تولى الروبوت مهمة الإجابة عن الأسئلة الشائعة وإرشاد المرضى، مما ارتقى بتجربة المرضى بشكل ملحوظ ووفر وقت الموظفين وتفرغهم للتركيز على المعاملات الطبية والإدارية الأكثر تعقيداً.</p>
+              </div>
             </div>
-            <p class="project-text-content">المستشفى التخصصي (Specialty Hospital): تشغيل أول روبوت استقبال تفاعلي مدعوم بالذكاء الاصطناعي في القطاع الصحي بالأردن. وقد نجح هذا الروبوت في حل مشكلة جوهرية كانت تواجه المراجعين والمتمثلة في عدم معرفة الاتجاهات وكثرة الاستفسارات المتكررة التي كانت تشتت موظفي قسم القبول عن مهامهم الأساسية؛ حيث تولى الروبوت مهمة الإجابة عن الأسئلة الشائعة وإرشاد المرضى، مما ارتقى بتجربة المرضى بشكل ملحوظ ووفر وقت الموظفين وتفرغهم للتركيز على المعاملات الطبية والإدارية الأكثر تعقيداً.</p>
           </div>
 
           <!-- 5. Ministry of Digital Economy and Entrepreneurship (MODEE) -->
-          <div class="project-item-card reveal-on-scroll">
-            <div class="project-header-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
-              <span>وزارة الاقتصاد الرقمي والريادة (MODEE)</span>
+          <div class="accordion-item reveal-on-scroll">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <div class="project-header-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span>وزارة الاقتصاد الرقمي والريادة (MODEE)</span>
+              </div>
+              <span class="accordion-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p class="project-text-content">وزارة الاقتصاد الرقمي والريادة (MODEE): إدخال روبوت استقبال ذكي وتفاعلي لخدمة وإرشاد المراجعين داخل مراكز الخدمات الحكومية التابعة للوزارة، مما يسهل تجربة المواطنين ويبرز هوية الأردن الرقمية.</p>
+              </div>
             </div>
-            <p class="project-text-content">وزارة الاقتصاد الرقمي والريادة (MODEE): إدخال روبوت استقبال ذكي وتفاعلي لخدمة وإرشاد المراجعين داخل مراكز الخدمات الحكومية التابعة للوزارة، مما يسهل تجربة المواطنين ويبرز هوية الأردن الرقمية.</p>
           </div>
 
           <!-- 6. Aqaba Special Economic Zone Authority (ASEZA) -->
-          <div class="project-item-card reveal-on-scroll">
-            <div class="project-header-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path></svg>
-              <span>سلطة منطقة العقبة الاقتصادية الخاصة (ASEZA)</span>
+          <div class="accordion-item reveal-on-scroll">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <div class="project-header-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path></svg>
+                <span>سلطة منطقة العقبة الاقتصادية الخاصة (ASEZA)</span>
+              </div>
+              <span class="accordion-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p class="project-text-content">سلطة منطقة العقبة الاقتصادية الخاصة (ASEZA): توظيف روبوت تفاعلي مخصص للتواصل مع المستثمرين الأجانب والمحليين، وتقديم شروحات تفاعلية حول المزايا والحوافز الاستثمارية المتاحة وعرض مقومات البيئة الاقتصادية الجاذبة في العقبة.</p>
+              </div>
             </div>
-            <p class="project-text-content">سلطة منطقة العقبة الاقتصادية الخاصة (ASEZA): توظيف روبوت تفاعلي مخصص للتواصل مع المستثمرين الأجانب والمحليين، وتقديم شروحات تفاعلية حول المزايا والحوافز الاستثمارية المتاحة وعرض مقومات البيئة الاقتصادية الجاذبة في العقبة.</p>
           </div>
 
           <!-- 7. Many Other Companies & Open Free-Flowing Moving Client Logos Carousel -->
-          <div class="project-item-card reveal-on-scroll">
-            <p class="project-text-content" style="font-weight:700; margin-bottom:4px;">والعديد من الشركات والمؤسسات الرائدة الأخرى:</p>
-            
-            <!-- Open Borderless Free-flowing Moving Marquee of All 9 Client Logos -->
-            <div class="logos-free-flow-wrapper">
-              <div class="logos-marquee-track">
-                <!-- Set 1 of Client Logos -->
-                <div class="client-logo-item" title="Orange">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Orange%20Logo.png" alt="Orange" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="Zain">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Zain%20Logo.png" alt="Zain" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="مديرية الأمن العام">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/PSD%20Logo.jpeg" alt="PSD" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="Centro Stores">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Centro%20Stores%20Logo.jpeg" alt="Centro Stores" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="بنك الإسكان">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Housing%20Bank%20Logo.jpg.jpeg" alt="Housing Bank" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="فندق هيلتون عمان">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Hilton%20Amman%20Logo.jpeg" alt="Hilton Amman" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="المستشفى التخصصي">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Specialty%20Hospital%20Logo.png" alt="Specialty Hospital" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="جامعة الزيتونة">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/ZUJ%20Logo.png" alt="ZUJ" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="MCE Logo">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/MCE%20Logo.png" alt="MCE" class="client-logo-img">
-                </div>
+          <div class="accordion-item reveal-on-scroll">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <div class="project-header-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <span>والعديد من الشركات والمؤسسات الرائدة الأخرى:</span>
+              </div>
+              <span class="accordion-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p class="project-text-content" style="font-weight:700; margin-bottom:4px;">والعديد من الشركات والمؤسسات الرائدة الأخرى:</p>
+                
+                <!-- Open Borderless Free-flowing Moving Marquee of All 9 Client Logos -->
+                <div class="logos-free-flow-wrapper">
+                  <div class="logos-marquee-track">
+                    <!-- Set 1 of Client Logos -->
+                    <div class="client-logo-item" title="Orange">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Orange%20Logo.png" alt="Orange" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="Zain">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Zain%20Logo.png" alt="Zain" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="مديرية الأمن العام">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/PSD%20Logo.jpeg" alt="PSD" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="Centro Stores">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Centro%20Stores%20Logo.jpeg" alt="Centro Stores" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="بنك الإسكان">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Housing%20Bank%20Logo.jpg.jpeg" alt="Housing Bank" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="فندق هيلتون عمان">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Hilton%20Amman%20Logo.jpeg" alt="Hilton Amman" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="المستشفى التخصصي">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Specialty%20Hospital%20Logo.png" alt="Specialty Hospital" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="جامعة الزيتونة">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/ZUJ%20Logo.png" alt="ZUJ" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="MCE Logo">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/MCE%20Logo.png" alt="MCE" class="client-logo-img">
+                    </div>
 
-                <!-- Set 2 for Seamless Continuous Loop -->
-                <div class="client-logo-item" title="Orange">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Orange%20Logo.png" alt="Orange" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="Zain">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Zain%20Logo.png" alt="Zain" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="مديرية الأمن العام">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/PSD%20Logo.jpeg" alt="PSD" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="Centro Stores">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Centro%20Stores%20Logo.jpeg" alt="Centro Stores" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="بنك الإسكان">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Housing%20Bank%20Logo.jpg.jpeg" alt="Housing Bank" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="فندق هيلتون عمان">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Hilton%20Amman%20Logo.jpeg" alt="Hilton Amman" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="المستشفى التخصصي">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Specialty%20Hospital%20Logo.png" alt="Specialty Hospital" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="جامعة الزيتونة">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/ZUJ%20Logo.png" alt="ZUJ" class="client-logo-img">
-                </div>
-                <div class="client-logo-item" title="MCE Logo">
-                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/MCE%20Logo.png" alt="MCE" class="client-logo-img">
+                    <!-- Set 2 for Seamless Continuous Loop -->
+                    <div class="client-logo-item" title="Orange">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Orange%20Logo.png" alt="Orange" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="Zain">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Zain%20Logo.png" alt="Zain" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="مديرية الأمن العام">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/PSD%20Logo.jpeg" alt="PSD" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="Centro Stores">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Centro%20Stores%20Logo.jpeg" alt="Centro Stores" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="بنك الإسكان">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Housing%20Bank%20Logo.jpg.jpeg" alt="Housing Bank" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="فندق هيلتون عمان">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Hilton%20Amman%20Logo.jpeg" alt="Hilton Amman" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="المستشفى التخصصي">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Specialty%20Hospital%20Logo.png" alt="Specialty Hospital" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="جامعة الزيتونة">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/ZUJ%20Logo.png" alt="ZUJ" class="client-logo-img">
+                    </div>
+                    <div class="client-logo-item" title="MCE Logo">
+                      <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/MCE%20Logo.png" alt="MCE" class="client-logo-img">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- 8. University of Jordan -->
-          <div class="project-item-card reveal-on-scroll" style="border-right: 4px solid var(--brand-primary);">
-            <div class="project-header-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg>
-              <span>الجامعة الأردنية (The University of Jordan)</span>
+          <div class="accordion-item reveal-on-scroll">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <div class="project-header-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg>
+                <span>الجامعة الأردنية (The University of Jordan)</span>
+              </div>
+              <span class="accordion-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p class="project-text-content">ولم يقتصر هذا التميز على قطاع الأعمال والخدمات فحسب؛ بل امتد ليتوج برؤية تعليمية مستدامة من خلال افتتاح مختبر متخصص في الجامعة الأردنية (The University of Jordan). يهدف هذا المختبر المبتكر إلى تسليط الضوء على هذه التكنولوجيات الحديثة وإبرازها للطلبة، متيحاً لهم منصة تطبيقية حقيقية للتعرف على تطبيقات الذكاء الاصطناعي الفيزيائي والروبوتات واكتساب مهارات عملية تؤهلهم لريادة متطلبات سوق العمل المستقبلي وتوطين هذه التقنيات محلياً.</p>
+              </div>
             </div>
-            <p class="project-text-content">ولم يقتصر هذا التميز على قطاع الأعمال والخدمات فحسب؛ بل امتد ليتوج برؤية تعليمية مستدامة من خلال افتتاح مختبر متخصص في الجامعة الأردنية (The University of Jordan). يهدف هذا المختبر المبتكر إلى تسليط الضوء على هذه التكنولوجيات الحديثة وإبرازها للطلبة، متيحاً لهم منصة تطبيقية حقيقية للتعرف على تطبيقات الذكاء الاصطناعي الفيزيائي والروبوتات واكتساب مهارات عملية تؤهلهم لريادة متطلبات سوق العمل المستقبلي وتوطين هذه التقنيات محلياً.</p>
           </div>
 
         </div>
@@ -1242,8 +1386,10 @@ img {
         
         <p class="content-paragraph reveal-on-scroll">تحمل الزيارتان الأخيرتان أبعاداً استراتيجية متكاملة للنهوض بالمنظومة المحلية وعناصر القيمة المضافة فيها:</p>
 
-        <div class="project-item-card reveal-on-scroll" style="margin: 1.5rem 0;">
-          <p class="project-text-content">ركزت زيارة سمو ولي العهد الأمير الحسين إلى إحدى كبرى شركات الاستثمار الجريء المتخصصة في التكنولوجيا العميقة والأنظمة الذكية والمطورة للروبوتات على إبراز المزايا التنافسية للأردن كوجهة تكنولوجية واعدة، والدور المحوري للمجلس الوطني لتكنولوجيا المستقبل في احتضان ودعم المشاريع المتقدمة. وتم بحث تطوير المواهب الأردنية في مجالات دقيقة مثل أشباه الموصلات والحوسبة الكمية وبناء الأنظمة الذكية. في المقابل، هدفت زيارة جلالة الملك عبدالله الثاني لكبرى شركات الروبوتات والذكاء الاصطناعي في شنغهاي إلى بناء قنوات اتصال مباشرة وتطوير برامج تعاونية تجمع بين مطوري الروبوتات المتقدمة وبين الجامعات والمؤسسات الأردنية لتطوير التطبيقات الروبوتية المخصصة للاحتياجات المحلية وتسهيل تبادل الخبرات العملية، وهو ما ينسجم تماماً مع خطوة افتتاح مختبر الروبوتات بالجامعة الأردنية كخطوة تفعيلية أولى.</p>
+        <div class="accordion-item is-open reveal-on-scroll" style="margin: 1.5rem 0;">
+          <div class="accordion-inner" style="padding: 20px 22px;">
+            <p class="project-text-content">ركزت زيارة سمو ولي العهد الأمير الحسين إلى إحدى كبرى شركات الاستثمار الجريء المتخصصة في التكنولوجيا العميقة والأنظمة الذكية والمطورة للروبوتات على إبراز المزايا التنافسية للأردن كوجهة تكنولوجية واعدة، والدور المحوري للمجلس الوطني لتكنولوجيا المستقبل في احتضان ودعم المشاريع المتقدمة. وتم بحث تطوير المواهب الأردنية في مجالات دقيقة مثل أشباه الموصلات والحوسبة الكمية وبناء الأنظمة الذكية. في المقابل، هدفت زيارة جلالة الملك عبدالله الثاني لكبرى شركات الروبوتات والذكاء الاصطناعي في شنغهاي إلى بناء قنوات اتصال مباشرة وتطوير برامج تعاونية تجمع بين مطوري الروبوتات المتقدمة وبين الجامعات والمؤسسات الأردنية لتطوير التطبيقات الروبوتية المخصصة للاحتياجات المحلية وتسهيل تبادل الخبرات العملية، وهو ما ينسجم تماماً مع خطوة افتتاح مختبر الروبوتات بالجامعة الأردنية كخطوة تفعيلية أولى.</p>
+          </div>
         </div>
       </section>
 
@@ -1332,33 +1478,6 @@ img {
     <button class="floating-action-icon share-btn-wa" title="واتساب (0775622282)">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.16 12.04 20.16C10.66 20.16 9.3 19.8 8.1 19.09L7.81 18.92L4.7 19.74L5.53 16.71L5.34 16.41C4.55 15.15 4.14 13.55 4.14 11.92C4.14 7.38 7.84 3.67 12.05 3.67ZM8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.69C7.02 10.9 7.9 12.07 8.02 12.23C8.15 12.39 9.74 14.84 12.18 15.89C14.2 16.77 14.62 16.59 15.06 16.55C15.51 16.51 16.5 15.96 16.71 15.38C16.92 14.79 16.92 14.29 16.86 14.18C16.8 14.07 16.63 14.01 16.38 13.88C16.13 13.76 14.9 13.15 14.67 13.07C14.45 12.98 14.28 12.94 14.12 13.19C13.95 13.44 13.48 14.01 13.34 14.18C13.2 14.34 13.06 14.36 12.81 14.24C12.56 14.11 11.75 13.85 10.8 13C10.06 12.34 9.56 11.53 9.42 11.28C9.28 11.03 9.4 10.9 9.53 10.77C9.64 10.66 9.78 10.48 9.9 10.34C10.03 10.2 10.07 10.1 10.15 9.93C10.24 9.76 10.19 9.62 10.13 9.5C10.07 9.37 9.58 8.16 9.37 7.67C9.17 7.18 8.97 7.25 8.82 7.24C8.68 7.24 8.53 7.33 8.53 7.33Z"/>
-      </svg>
-    </button>
-    <!-- Facebook -->
-    <button class="floating-action-icon share-btn-fb" title="فيسبوك">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-    </button>
-    <!-- Instagram -->
-    <button class="floating-action-icon share-btn-ig" title="انستقرام">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-    </button>
-  </div>
-
-  <!-- Clean Footer (Logo & Official Social Links) -->
-  <footer class="site-footer-area">
-    <div class="footer-clean-container">
-      <a href="#" class="nav-logo-link">
-        <img src="https://uploads.onecompiler.io/43n8uttmw/1787401723231/unnamed%20(2).png" 
-             alt="شعار كويل" 
-             class="logo-img" 
-             id="footer-site-logo" 
-             style="height:32px;">
-      </a>
-      <div class="footer-social-row">
-        <!-- WhatsApp -->
-        <a href="#" class="footer-social-icon share-btn-wa" title="واتساب 0775622282">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.16 12.04 20.16C10.66 20.16 9.3 19.8 8.1 19.09L7.81 18.92L4.7 19.74L5.53 16.71L5.34 16.41C4.55 15.15 4.14 13.55 4.14 11.92C4.14 7.38 7.84 3.67 12.05 3.67ZM8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.69C7.02 10.9 7.9 12.07 8.02 12.23C8.15 12.39 9.74 14.84 12.18 15.89C14.2 16.77 14.62 16.59 15.06 16.55C15.51 16.51 16.5 15.96 16.71 15.38C16.92 14.79 16.92 14.29 16.86 14.18C16.8 14.07 16.63 14.01 16.38 13.88C16.13 13.76 14.9 13.15 14.67 13.07C14.45 12.98 14.28 12.94 14.12 13.19C13.95 13.44 13.48 14.01 13.34 14.18C13.2 14.34 13.06 14.36 12.81 14.24C12.56 14.11 11.75 13.85 10.8 13C10.06 12.34 9.56 11.53 9.42 11.28C9.28 11.03 9.4 10.9 9.53 10.77C9.64 10.66 9.78 10.48 9.9 10.34C10.03 10.2 10.07 10.1 10.15 9.93C10.24 9.76 10.19 9.62 10.13 9.5C10.07 9.37 9.58 8.16 9.37 7.67C9.17 7.18 8.97 7.25 8.82 7.24C8.68 7.24 8.53 7.33 8.53 7.33Z"/>
           </svg>
         </a>
         <!-- Facebook -->
@@ -1381,7 +1500,7 @@ img {
 /**
  * Interactive Script for Jordan Robotics Strategy Article
  * Handles dynamic font scaling, pinned action bar, WhatsApp direct chat, Web Share API,
- * scroll reveal animations, and Free-flow Draggable Logo Carousel.
+ * scroll reveal animations, Free-flow Draggable Logo Carousel, and Interactive Accordion.
  */
 
 const WHITE_LOGO_URL = 'https://uploads.onecompiler.io/43n8uttmw/1787401723231/unnamed%20(2).png';
@@ -1394,6 +1513,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBookmarks();
   initFreeFlowDraggableLogos();
   initScrollReveal();
+  initAccordion();
 });
 
 /* 1. Theme Management */
@@ -1656,7 +1776,7 @@ function initFreeFlowDraggableLogos() {
   }, { passive: true });
 }
 
-/* 7. Scroll Reveal Animation for delightful reading experience */
+/* 7. Scroll Reveal Animation */
 function initScrollReveal() {
   const elements = document.querySelectorAll('.reveal-on-scroll');
   if (!elements.length) return;
@@ -1676,9 +1796,41 @@ function initScrollReveal() {
 
     elements.forEach(el => observer.observe(el));
   } else {
-    // Fallback for older browsers
     elements.forEach(el => el.classList.add('is-revealed'));
   }
+}
+
+/* 8. Interactive Single-Open Accordion */
+function initAccordion() {
+  const accordionItems = document.querySelectorAll('.accordion-item');
+  if (!accordionItems.length) return;
+
+  accordionItems.forEach(item => {
+    const trigger = item.querySelector('.accordion-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+
+      // Close all other items
+      accordionItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('is-open');
+          const otherTrigger = otherItem.querySelector('.accordion-trigger');
+          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current item
+      if (isOpen) {
+        item.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 }
 
 function showToastNotice(msg) {
