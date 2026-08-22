@@ -623,7 +623,7 @@ img {
   padding: 0 22px 22px 22px;
 }
 
-/* Crown Prince Image Card Visual */
+/* Card Visuals (Images inside Accordion items) */
 .project-featured-visual {
   width: 100%;
   border-radius: var(--radius-md);
@@ -1186,7 +1186,7 @@ img {
         </div>
       </section>
 
-      <!-- Section 2: Interactive Single-Open Accordion with Zero Leakage & Open Marquee under University of Jordan -->
+      <!-- Section 2: Interactive Single-Open Accordion with Exact Reordering & QAIA Project Image -->
       <section id="sec-2">
         <h2 class="content-section-title reveal-on-scroll">٢. الريادة المبكرة والتطبيقات العملية في السوق الأردني</h2>
         
@@ -1210,7 +1210,6 @@ img {
             </button>
             <div class="accordion-content">
               <div class="accordion-inner">
-                <!-- Updated Crown Prince Image (52) -->
                 <div class="project-featured-visual">
                   <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/HRH%20Prince%20AlHussain%20Bin%20Abdullah%20II52.PNG" 
                        alt="صاحب السمو الملكي الأمير الحسين بن عبدالله الثاني ولي العهد" 
@@ -1221,7 +1220,7 @@ img {
             </div>
           </div>
 
-          <!-- 2. Queen Alia International Airport -->
+          <!-- 2. Queen Alia International Airport (With QAIA Robots Project Image) -->
           <div class="accordion-item reveal-on-scroll">
             <button class="accordion-trigger" type="button" aria-expanded="false">
               <div class="project-header-badge">
@@ -1236,32 +1235,18 @@ img {
             </button>
             <div class="accordion-content">
               <div class="accordion-inner">
+                <!-- QAIA Cleaning Robots Project Image -->
+                <div class="project-featured-visual">
+                  <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/Quill%20X%20AIG%20Cleaning%20Robots%20Project.webp" 
+                       alt="مشروع روبوتات التنظيف الذكية في مطار الملكة علياء الدولي" 
+                       class="project-card-image">
+                </div>
                 <p class="project-text-content">مطار الملكة علياء الدولي (QAIA): توريد وتشغيل 4 روبوتات تنظيف ذكية وذاتية الحركة كأول خدمة روبوتية متميزة من نوعها على مستوى مطارات المنطقة، لتعزيز الكفاءة التشغيلية والالتزام بمعايير الاستدامة دون تداخل بشري مباشر. وقد توج هذا المشروع الريادي بجائزة عالمية مرموقة، حيث فاز نظام التنظيف الذكي المطبق بالمطار بجائزة الابتكار التقني لعام 2025 (Technical Innovation Award 2025) من مجلس المطارات الدولي (ACI) بالشراكة مع شركة "أماديوس" (Amadeus)، وذلك عن فئة "أفضل ابتكار في إدارة عمليات المطارات والتجهيزات"، وجرى تسليم الجائزة رسمياً خلال فعاليات مؤتمر "ابتكارات المطارات" في مدينة بوسان بجمهورية كوريا.</p>
               </div>
             </div>
           </div>
 
-          <!-- 3. Abdali Boulevard -->
-          <div class="accordion-item reveal-on-scroll">
-            <button class="accordion-trigger" type="button" aria-expanded="false">
-              <div class="project-header-badge">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                <span>بوليفارد العبدلي (Abdali Boulevard)</span>
-              </div>
-              <span class="accordion-arrow">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </span>
-            </button>
-            <div class="accordion-content">
-              <div class="accordion-inner">
-                <p class="project-text-content">بوليفارد العبدلي (Abdali Boulevard): إطلاق أول مشروع متكامل في الأردن بنظام "الروبوت كخدمة" (Robot-as-a-Service - RaaS). ويشمل المشروع تشغيل روبوت جلي وتلميع ذكي (Scrubbing Robot) لتنظيف مواقف السيارات الكبرى، إلى جانب روبوت كنس وتنظيف ذكي (Sweeping Robot) لتغطية الممرات والمماشي الخارجية والساحات المحيطة بالبوليفارد، مما يحقق كفاءة تشغيلية عالية وحلولاً مؤتمتة بالكامل لإدارة المرافق.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. Specialty Hospital -->
+          <!-- 3. Specialty Hospital (Placed ABOVE Abdali Boulevard as requested) -->
           <div class="accordion-item reveal-on-scroll">
             <button class="accordion-trigger" type="button" aria-expanded="false">
               <div class="project-header-badge">
@@ -1277,6 +1262,26 @@ img {
             <div class="accordion-content">
               <div class="accordion-inner">
                 <p class="project-text-content">المستشفى التخصصي (Specialty Hospital): تشغيل أول روبوت استقبال تفاعلي مدعوم بالذكاء الاصطناعي في القطاع الصحي بالأردن. وقد نجح هذا الروبوت في حل مشكلة جوهرية كانت تواجه المراجعين والمتمثلة في عدم معرفة الاتجاهات وكثرة الاستفسارات المتكررة التي كانت تشتت موظفي قسم القبول عن مهامهم الأساسية؛ حيث تولى الروبوت مهمة الإجابة عن الأسئلة الشائعة وإرشاد المرضى، مما ارتقى بتجربة المرضى بشكل ملحوظ ووفر وقت الموظفين وتفرغهم للتركيز على المعاملات الطبية والإدارية الأكثر تعقيداً.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Abdali Boulevard -->
+          <div class="accordion-item reveal-on-scroll">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <div class="project-header-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                <span>بوليفارد العبدلي (Abdali Boulevard)</span>
+              </div>
+              <span class="accordion-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p class="project-text-content">بوليفارد العبدلي (Abdali Boulevard): إطلاق أول مشروع متكامل في الأردن بنظام "الروبوت كخدمة" (Robot-as-a-Service - RaaS). ويشمل المشروع تشغيل روبوت جلي وتلميع ذكي (Scrubbing Robot) لتنظيف مواقف السيارات الكبرى، إلى جانب روبوت كنس وتنظيف ذكي (Sweeping Robot) لتغطية الممرات والمماشي الخارجية والساحات المحيطة بالبوليفارد، مما يحقق كفاءة تشغيلية عالية وحلولاً مؤتمتة بالكامل لإدارة المرافق.</p>
               </div>
             </div>
           </div>
@@ -1483,7 +1488,7 @@ img {
 
   </main>
 
-  <!-- Pinned Floating Mobile Bottom Bar - Perfectly Spaced, Conflict-Free, Non-Wrapping -->
+  <!-- Pinned Floating Mobile Bottom Bar - Clean, Conflict-Free, Non-Wrapping -->
   <div class="floating-mobile-bar">
     <!-- Theme Toggle -->
     <button class="floating-action-icon theme-toggle-btn" title="تبديل الوضع">
