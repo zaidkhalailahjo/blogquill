@@ -14,7 +14,7 @@
   <style>
 /* ==========================================================================
    Modern Editorial Theme - Jordan Robotics Strategy
-   نسخة مخصصة محسنة ومتقنة بالكامل مع الشعارات المخصصة والصور الجديدة
+   نسخة مخصصة محسنة ومتقنة بالكامل
    ========================================================================== */
 
 :root {
@@ -832,50 +832,54 @@ img {
   transform: translateY(-2px);
 }
 
-/* Pinned Bottom Floating Dock */
+/* Pinned Bottom Floating Dock - Zero Overlapping / Strict Fixed Dimensions */
 .floating-mobile-bar {
   position: fixed;
   bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(11, 17, 32, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: #0b1120;
   border: 1.5px solid rgba(0, 163, 255, 0.35);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-  border-radius: var(--radius-full);
-  padding: 6px 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+  border-radius: 9999px;
+  padding: 6px 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   z-index: 99999;
-  max-width: calc(100vw - 20px);
-  width: max-content;
+  max-width: 95vw;
+  width: auto;
   box-sizing: border-box;
 }
 
 .floating-action-icon {
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  max-width: 38px;
+  flex: 0 0 38px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: var(--transition);
+  transition: transform 0.2s ease, background 0.2s ease;
   font-size: 0.95rem;
-  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
 }
 
 .floating-action-icon:hover {
   background: var(--brand-cyan);
   color: #ffffff;
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 /* Toast Message */
@@ -983,7 +987,7 @@ img {
 
   .floating-mobile-bar {
     bottom: 12px;
-    padding: 5px 10px;
+    padding: 5px 8px;
     gap: 6px;
   }
 
@@ -991,6 +995,8 @@ img {
     width: 34px;
     height: 34px;
     min-width: 34px;
+    max-width: 34px;
+    flex: 0 0 34px;
   }
 }
 
@@ -1024,13 +1030,15 @@ img {
 
   .floating-mobile-bar {
     gap: 5px;
-    padding: 4px 8px;
+    padding: 4px 6px;
   }
 
   .floating-action-icon {
     width: 32px;
     height: 32px;
     min-width: 32px;
+    max-width: 32px;
+    flex: 0 0 32px;
   }
 }
 
@@ -1305,11 +1313,11 @@ img {
             </div>
           </div>
 
-          <!-- 4. Abdali Boulevard (Logo) -->
+          <!-- 4. Abdali Boulevard (NEW LOGO) -->
           <div class="accordion-item reveal-on-scroll">
             <button class="accordion-trigger" type="button" aria-expanded="false">
               <div class="project-header-badge">
-                <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/image-removebg-preview%20(15)2.png" 
+                <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/image-removebg-preview%20(17).png" 
                      alt="بوليفارد العبدلي" 
                      class="project-title-logo">
                 <span>بوليفارد العبدلي (Abdali Boulevard)</span>
@@ -1540,20 +1548,20 @@ img {
 
   </main>
 
-  <!-- Pinned Floating Mobile Bottom Bar -->
+  <!-- Pinned Floating Mobile Bottom Bar - Strictly Non-Overlapping -->
   <div class="floating-mobile-bar">
     <!-- Theme Toggle -->
-    <button class="floating-action-icon theme-toggle-btn" title="تبديل الوضع">
+    <button class="floating-action-icon theme-toggle-btn" type="button" title="تبديل الوضع">
       <span class="theme-icon-slot">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
       </span>
     </button>
     <!-- Font Size Cycle Button -->
-    <button class="floating-action-icon font-size-cycle-btn" title="تكبير وتصغير حجم الخط">
-      <span style="font-family:sans-serif; font-size:12px; font-weight:800;">A±</span>
+    <button class="floating-action-icon font-size-cycle-btn" type="button" title="تكبير وتصغير حجم الخط">
+      <span style="font-family:sans-serif; font-size:12px; font-weight:800; line-height:1;">A±</span>
     </button>
     <!-- Native Share Button -->
-    <button class="floating-action-icon share-btn-native" title="مشاركة المقال">
+    <button class="floating-action-icon share-btn-native" type="button" title="مشاركة المقال">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="18" cy="5" r="3"></circle>
         <circle cx="6" cy="12" r="3"></circle>
@@ -1563,9 +1571,36 @@ img {
       </svg>
     </button>
     <!-- WhatsApp Direct Chat to 0775622282 -->
-    <button class="floating-action-icon share-btn-wa" title="واتساب (0775622282)">
+    <button class="floating-action-icon share-btn-wa" type="button" title="واتساب (0775622282)">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.16 12.04 20.16C10.66 20.16 9.3 19.8 8.1 19.09L7.81 18.92L4.7 19.74L5.53 16.71L5.34 16.41C4.55 15.15 4.14 13.55 4.14 11.92C4.14 7.38 7.84 3.67 12.05 3.67ZM8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.69C7.02 10.9 7.9 12.07 8.02 12.23C8.15 12.39 9.74 14.84 12.18 15.89C14.2 16.77 14.62 16.59 15.06 16.55C15.51 16.51 16.5 15.96 16.71 15.38C16.92 14.79 16.92 14.29 16.86 14.18C16.8 14.07 16.63 14.01 16.38 13.88C16.13 13.76 14.9 13.15 14.67 13.07C14.45 12.98 14.28 12.94 14.12 13.19C13.95 13.44 13.48 14.01 13.34 14.18C13.2 14.34 13.06 14.36 12.81 14.24C12.56 14.11 11.75 13.85 10.8 13C10.06 12.34 9.56 11.53 9.42 11.28C9.28 11.03 9.4 10.9 9.53 10.77C9.64 10.66 9.78 10.48 9.9 10.34C10.03 10.2 10.07 10.1 10.15 9.93C10.24 9.76 10.19 9.62 10.13 9.5C10.07 9.37 9.58 8.16 9.37 7.67C9.17 7.18 8.97 7.25 8.82 7.24C8.68 7.24 8.53 7.33 8.53 7.33Z"/>
+          </svg>
+        </button>
+        <!-- Facebook -->
+        <button class="floating-action-icon share-btn-fb" type="button" title="فيسبوك">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </button>
+        <!-- Instagram -->
+        <button class="floating-action-icon share-btn-ig" type="button" title="انستقرام">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </button>
+      </div>
+
+  <!-- Clean Footer (Logo & Official Social Links) -->
+  <footer class="site-footer-area">
+    <div class="footer-clean-container">
+      <a href="#" class="nav-logo-link">
+        <img src="https://uploads.onecompiler.io/43n8uttmw/1787401723231/unnamed%20(2).png" 
+             alt="شعار كويل" 
+             class="logo-img" 
+             id="footer-site-logo" 
+             style="height:32px;">
+      </a>
+      <div class="footer-social-row">
+        <!-- WhatsApp -->
+        <a href="#" class="footer-social-icon share-btn-wa" title="واتساب 0775622282">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.16 12.04 20.16C10.66 20.16 9.3 19.8 8.1 19.09L7.81 18.92L4.7 19.74L5.53 16.71L5.34 16.41C4.55 15.15 4.14 13.55 4.14 11.92C4.14 7.38 7.84 3.67 12.05 3.67ZM8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.69C7.02 10.9 7.9 12.07 8.02 12.23C8.15 12.39 9.74 14.84 12.18 15.89C14.2 16.77 14.62 16.59 15.06 16.55C15.51 16.51 16.5 15.96 16.71 15.38C16.92 14.79 16.92 14.29 16.86 14.18C16.8 14.07 16.63 14.01 16.38 13.88C16.13 13.76 14.9 13.15 14.67 13.07C14.45 12.98 14.28 12.94 14.12 13.19C13.95 13.44 13.48 14.01 13.34 14.18C13.2 14.34 13.06 14.36 12.81 14.24C12.56 14.11 11.75 13.85 10.8 13C10.06 12.34 9.56 11.53 9.42 11.28C9.28 11.03 9.4 10.9 9.53 10.77C9.64 10.66 9.78 10.48 9.9 10.34C10.03 10.2 10.07 10.1 10.15 9.93C10.24 9.76 10.19 9.62 10.13 9.5C10.07 9.37 9.58 8.16 9.37 7.67C9.17 7.18 8.97 7.25 8.82 7.24C8.68 7.24 8.53 7.33 8.53 7.33Z"/>
           </svg>
         </a>
         <!-- Facebook -->
@@ -1715,14 +1750,6 @@ function initSocialSharing() {
     b.addEventListener('click', (e) => {
       e.preventDefault();
       window.open('https://www.facebook.com/share/1DvoSJKAPp/?mibextid=wwXIfr', '_blank');
-    });
-  });
-
-  // LinkedIn
-  document.querySelectorAll('.share-btn-in').forEach(b => {
-    b.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.open('https://www.linkedin.com/company/quillworld2/', '_blank');
     });
   });
 
