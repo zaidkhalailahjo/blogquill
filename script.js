@@ -1,26 +1,24 @@
 /**
  * Interactive Script for Jordan Robotics Strategy Article
- * Supports dynamic logo switching for Dark/Light mode
+ * Handles dynamic font scaling, pinned action bar, theme toggle & logo switching.
  */
 
-const NAVY_LOGO_URL = 'https://uploads.onecompiler.io/43n8uttmw/43naswvmw/New-Project-9-1-1.png';
 const WHITE_LOGO_URL = 'https://uploads.onecompiler.io/43n8uttmw/1787401723231/unnamed%20(2).png';
 
 document.addEventListener('DOMContentLoaded', () => {
-  initThemeAndLogos();
+  initTheme();
   initReadingProgressBar();
-  initFontControls();
+  initFontScaler();
   initSocialSharing();
   initBookmarks();
 });
 
-/* 1. Theme Management & Logo Switching */
-function initThemeAndLogos() {
+/* 1. Theme Management */
+function initTheme() {
   const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
   const headerLogo = document.getElementById('header-site-logo');
   const footerLogo = document.getElementById('footer-site-logo');
 
-  // Check saved theme or system preference
   const savedTheme = localStorage.getItem('site_theme') || 'light';
   applyTheme(savedTheme);
 
@@ -36,17 +34,9 @@ function initThemeAndLogos() {
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     
-    // In Header: Use White logo in dark theme or dark header, Navy in light theme
-    // Since our navbar has a sleek dark aesthetic like reference design, White logo looks stunning on both,
-    // but in light theme we can switch or display appropriately.
-    if (headerLogo) {
-      headerLogo.src = WHITE_LOGO_URL;
-    }
-    if (footerLogo) {
-      footerLogo.src = WHITE_LOGO_URL;
-    }
+    if (headerLogo) headerLogo.src = WHITE_LOGO_URL;
+    if (footerLogo) footerLogo.src = WHITE_LOGO_URL;
 
-    // Update icons
     document.querySelectorAll('.theme-icon-slot').forEach(slot => {
       if (theme === 'dark') {
         slot.innerHTML = `
@@ -84,20 +74,40 @@ function initReadingProgressBar() {
   }, { passive: true });
 }
 
-/* 3. Font Size Controls */
-function initFontControls() {
-  const fontSizes = ['sm', 'md', 'lg', 'xl'];
-  let currentIndex = 1; // 'md' default
+/* 3. Robust Font Scaler Engine */
+function initFontScaler() {
+  // Preset scale values and Arabic labels
+  const scaleLevels = [
+    { scale: 0.92, label: 'حجم الخط: مدمج للهاتف (92%)' },
+    { scale: 1.00, label: 'حجم الخط: عادي (100%)' },
+    { scale: 1.15, label: 'حجم الخط: متوسط (115%)' },
+    { scale: 1.30, label: 'حجم الخط: كبير (130%)' },
+    { scale: 1.45, label: 'حجم الخط: كبير جداً (145%)' }
+  ];
+
+  let currentLevel = parseInt(localStorage.getItem('font_scale_level') || '0', 10);
+  if (isNaN(currentLevel) || currentLevel < 0 || currentLevel >= scaleLevels.length) {
+    currentLevel = 0; // Default to mobile compact
+  }
+
+  applyScale(currentLevel, false);
 
   document.querySelectorAll('.font-size-cycle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % fontSizes.length;
-      const selected = fontSizes[currentIndex];
-      fontSizes.forEach(s => document.body.classList.remove(`font-${s}`));
-      document.body.classList.add(`font-${selected}`);
-      showToastNotice(`تم ضبط حجم الخط: ${selected.toUpperCase()}`);
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentLevel = (currentLevel + 1) % scaleLevels.length;
+      localStorage.setItem('font_scale_level', currentLevel.toString());
+      applyScale(currentLevel, true);
     });
   });
+
+  function applyScale(levelIndex, notify) {
+    const item = scaleLevels[levelIndex];
+    document.documentElement.style.setProperty('--font-scale', item.scale.toString());
+    if (notify) {
+      showToastNotice(item.label);
+    }
+  }
 }
 
 /* 4. Social Sharing */
@@ -106,23 +116,37 @@ function initSocialSharing() {
   const title = document.title;
 
   document.querySelectorAll('.share-btn-wa').forEach(b => {
-    b.addEventListener('click', () => window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' ' + url)}`, '_blank'));
-  });
-
-  document.querySelectorAll('.share-btn-tw').forEach(b => {
-    b.addEventListener('click', () => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank'));
-  });
-
-  document.querySelectorAll('.share-btn-in').forEach(b => {
-    b.addEventListener('click', () => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank'));
+    b.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' ' + url)}`, '_blank');
+    });
   });
 
   document.querySelectorAll('.share-btn-fb').forEach(b => {
-    b.addEventListener('click', () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank'));
+    b.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+    });
+  });
+
+  document.querySelectorAll('.share-btn-in').forEach(b => {
+    b.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+    });
+  });
+
+  document.querySelectorAll('.share-btn-ig').forEach(b => {
+    b.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Placeholder for Instagram profile or share
+      window.open('https://instagram.com', '_blank');
+    });
   });
 
   document.querySelectorAll('.share-btn-cp').forEach(b => {
-    b.addEventListener('click', async () => {
+    b.addEventListener('click', async (e) => {
+      e.preventDefault();
       try {
         await navigator.clipboard.writeText(url);
         showToastNotice('تم نسخ رابط المقال بنجاح!');
@@ -141,7 +165,8 @@ function initBookmarks() {
   updateBookmarkUI(saved);
 
   bookmarkBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       saved = !saved;
       localStorage.setItem('article_bookmarked', saved ? 'true' : 'false');
       updateBookmarkUI(saved);
@@ -169,5 +194,5 @@ function showToastNotice(msg) {
     <span>${msg}</span>
   `;
   toast.classList.add('active');
-  setTimeout(() => toast.classList.remove('active'), 3200);
+  setTimeout(() => toast.classList.remove('active'), 2500);
 }
