@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>من وادي السيليكون إلى شنغهاي:خارطة طريق الأردن في عصر الذكاء الاصطناعي الفيزيائي</title>
+  <meta name="description" content="خارطة طريق الأردن في عصر الذكاء الاصطناعي الفيزيائي والروبوتات والتحول التكنولوجي المستقبلي.">
+  
+  <!-- Google Fonts: Cairo (Headings) & Tajawal (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress-track">
+    <div class="reading-progress-fill" id="reading-bar"></div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="site-navbar">
+    <div class="navbar-container">
+      
+      <!-- Right: Logo Container -->
+      <a href="#" class="nav-logo-link" title="الرئيسية">
+        <!-- White Logo (matches reference dark header bar) -->
+        <img src="https://uploads.onecompiler.io/43n8uttmw/1787401723231/unnamed%20(2).png" 
+             alt="شعار الموقع" 
+             class="logo-img" 
+             id="header-site-logo">
+      </a>
+
+      <!-- Center: Navigation Links -->
+      <nav>
+        <ul class="nav-links-list">
+          <li><a href="#" class="nav-item-link active">الرئيسية</a></li>
+          <li><a href="#" class="nav-item-link">كل المقالات</a></li>
+          <li>
+            <a href="#" class="nav-item-link">
+              الفئات
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:middle; margin-right:3px;">
+                <path d="M6 9l6 6 6-6"></path>
+              </svg>
+            </a>
+          </li>
+          <li><a href="#" class="nav-item-link">عن المدونة</a></li>
+          <li><a href="#" class="nav-item-link">اتصل بنا</a></li>
+        </ul>
+      </nav>
+
+      <!-- Left: Actions & Dark Mode & Subscribe -->
+      <div class="nav-actions">
+        <!-- Subscribe Pill Button -->
+        <button class="nav-subscribe-btn">اشترك في النشرة</button>
+
+        <!-- Theme Switcher (Moon/Sun) -->
+        <button class="nav-icon-btn theme-toggle-btn" title="تبديل الوضع الليلي / النهاري">
+          <span class="theme-icon-slot">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </button>
+
+        <!-- Search Icon -->
+        <button class="nav-icon-btn" title="بحث في الموقع">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle" id="mobile-menu-btn" title="القائمة">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Featured Article Banner (Matching Reference Design) -->
+  <section class="hero-banner-section">
+    <div class="hero-inner-container">
+      
+      <!-- Text Side -->
+      <div class="hero-text-col">
+        <div class="hero-badge">
+          <span>•</span>
+          <span>رؤية & مستقبل</span>
+        </div>
+        
+        <h1 class="hero-title">من وادي السيليكون إلى شنغهاي: خارطة طريق الأردن في عصر الذكاء الاصطناعي الفيزيائي</h1>
+        
+        <p class="hero-subtitle">محطتان استراتيجيتان ترسمان ملامح رؤية وطنية موحدة لمستقبل يقوده الذكاء الاصطناعي والروبوتات.</p>
+        
+        <div class="hero-dots">
+          <span class="hero-dot active"></span>
+          <span class="hero-dot"></span>
+          <span class="hero-dot"></span>
+          <span class="hero-dot"></span>
+        </div>
+      </div>
+
+      <!-- Visual Art / Image Side -->
+      <div class="hero-visual-box">
+        <svg class="hero-svg-art" viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="skylineGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#00a3ff" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#090e1a" stop-opacity="0.9"/>
+            </linearGradient>
+            <linearGradient id="robotGlow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00a3ff"/>
+              <stop offset="100%" stop-color="#00e5ff"/>
+            </linearGradient>
+          </defs>
+          
+          <!-- Background Grid & Skyline Silhouettes -->
+          <line x1="0" y1="280" x2="500" y2="280" stroke="#00a3ff" stroke-opacity="0.3" stroke-width="1.5"/>
+          <line x1="0" y1="295" x2="500" y2="295" stroke="#00a3ff" stroke-opacity="0.15" stroke-width="1"/>
+          
+          <!-- City Buildings -->
+          <rect x="40" y="160" width="30" height="120" fill="#0c172d" stroke="#00a3ff" stroke-opacity="0.2"/>
+          <rect x="80" y="120" width="45" height="160" fill="#0e1b36" stroke="#00a3ff" stroke-opacity="0.25"/>
+          <rect x="135" y="90" width="35" height="190" fill="#132347" stroke="#00a3ff" stroke-opacity="0.3"/>
+          <rect x="180" y="140" width="50" height="140" fill="#0d1830" stroke="#00a3ff" stroke-opacity="0.2"/>
+          
+          <!-- Shanghai Tower / Oriental Pearl Stylized Silhouette -->
+          <path d="M250 50 L253 280 L247 280 Z" fill="#00a3ff" fill-opacity="0.4"/>
+          <circle cx="250" cy="110" r="14" fill="#00a3ff" fill-opacity="0.5"/>
+          <circle cx="250" cy="180" r="10" fill="#00a3ff" fill-opacity="0.4"/>
+          
+          <!-- Silicon Valley Bridge Stylized Cables -->
+          <path d="M290 280 Q340 180 390 280" stroke="#00a3ff" stroke-opacity="0.35" stroke-width="2" fill="none"/>
+          <path d="M340 280 Q390 190 440 280" stroke="#00a3ff" stroke-opacity="0.25" stroke-width="1.5" fill="none"/>
+          <line x1="340" y1="180" x2="340" y2="280" stroke="#00a3ff" stroke-opacity="0.4" stroke-width="2"/>
+          <line x1="390" y1="190" x2="390" y2="280" stroke="#00a3ff" stroke-opacity="0.3" stroke-width="1.5"/>
+
+          <!-- Humanoid Robot Silhouette -->
+          <g transform="translate(320, 100)">
+            <!-- Head -->
+            <ellipse cx="40" cy="20" rx="10" ry="12" fill="url(#robotGlow)"/>
+            <rect x="33" y="16" width="14" height="4" rx="2" fill="#090e1a"/>
+            <!-- Body -->
+            <path d="M28 36 L52 36 L48 90 L32 90 Z" fill="#ffffff" fill-opacity="0.85"/>
+            <line x1="40" y1="40" x2="40" y2="85" stroke="#00a3ff" stroke-width="2"/>
+            <!-- Arms -->
+            <path d="M28 40 L16 70 L22 100" stroke="#00a3ff" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <path d="M52 40 L64 70 L58 100" stroke="#00a3ff" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <!-- Legs -->
+            <path d="M34 90 L32 170" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+            <path d="M46 90 L48 170" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+          </g>
+
+          <!-- Robotic Quadruped (Robot Dog) Silhouette -->
+          <g transform="translate(410, 195)">
+            <ellipse cx="25" cy="20" rx="20" ry="10" fill="url(#robotGlow)"/>
+            <circle cx="46" cy="14" r="6" fill="#ffffff"/>
+            <!-- Legs -->
+            <line x1="12" y1="25" x2="6" y2="55" stroke="#00a3ff" stroke-width="3" stroke-linecap="round"/>
+            <line x1="20" y1="26" x2="16" y2="55" stroke="#00a3ff" stroke-width="3" stroke-linecap="round"/>
+            <line x1="32" y1="26" x2="36" y2="55" stroke="#00a3ff" stroke-width="3" stroke-linecap="round"/>
+            <line x1="40" y1="25" x2="46" y2="55" stroke="#00a3ff" stroke-width="3" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Article Layout with Sidebar (2 Columns) -->
+  <main class="main-content-layout">
+    
+    <!-- 1. Right Column: Full Article Content Card -->
+    <div class="article-main-card">
+      
+      <!-- Article Header Inside Card -->
+      <div class="article-card-header">
+        <div class="article-top-meta">
+          <div class="author-info-group">
+            <div class="author-avatar-circle">ف</div>
+            <span class="author-name">فريق كويل</span>
+          </div>
+
+          <div class="article-badges-row">
+            <span class="badge-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span>20 أغسطس 2026</span>
+            </span>
+            <span class="badge-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>8 دقائق قراءة</span>
+            </span>
+            <span class="category-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              رؤية & مستقبل
+            </span>
+          </div>
+        </div>
+
+        <h1 class="article-main-title">من وادي السيليكون إلى شنغهاي:خارطة طريق الأردن في عصر الذكاء الاصطناعي الفيزيائي</h1>
+        
+        <p class="article-lead-text">شهدت تحركات القيادة الأردنية الهاشمية خلال صيف عام ٢٠٢٦ محطتين تكنولوجيتين بارزتين ترسمان معاً ملامح رؤية وطنية موحدة ومستقبلية. ففي حزيران ٢٠٢٦، زار سمو ولي العهد الأمير الحسين بن عبدالله الثاني مقر إحدى كبرى شركات الاستثمار الجريء المتخصصة في التكنولوجيا العميقة في وادي السيليكون بكاليفورنيا والتي تُعد مستثمراً رئيسياً وشريكاً مالياً قاد جولات التمويل التأسيسية والمتابعة لأبرز الشركات المطورة للروبوتات عالمياً ويشغل أحد شركائها عضوية مجلس إدارتها، مستكشفاً فرص جذب الاستثمارات العميقة وتطوير الكفاءات التقنية الأردنية، وبعد أسابيع معدودة، وتحديداً في ١٨ آب ٢٠٢٦، أجرى جلالة الملك عبدالله الثاني زيارة استراتيجية لعدد من كبريات الشركات الصينية الرائدة في تصنيع الروبوتات والذكاء الاصطناعي في شنغهاي، للوقوف على أحدث تطبيقات الروبوتات البشرية وتأكيد أهمية نقل الخبرات وتطوير الشراكات المباشرة مع الجامعات والمؤسسات الأردنية. تلتقي هاتان المحطتان عند سؤال محوري: أين يقع الأردن في الاقتصاد الجديد الذي يعاد تشكيله بالكامل بواسطة الروبوتات والذكاء الاصطناعي الفيزيائي؟</p>
+
+        <!-- Share and Bookmark Row -->
+        <div class="article-action-bar">
+          <button class="action-round-btn bookmark-btn" title="حفظ المقال">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+          </button>
+
+          <div class="share-action-group">
+            <span class="share-label-txt">شارك المقال</span>
+            <button class="action-round-btn share-btn-fb" title="فيسبوك">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </button>
+            <button class="action-round-btn share-btn-in" title="لينكد إن">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </button>
+            <button class="action-round-btn share-btn-tw" title="X / تويتر">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </button>
+            <button class="action-round-btn share-btn-wa" title="واتساب">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            </button>
+            <button class="action-round-btn share-btn-cp" title="نسخ الرابط">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 1 (Verbatim docx content) -->
+      <section id="sec-1">
+        <h2 class="content-section-title">١. الثورة العالمية للذكاء الاصطناعي الفيزيائي (Physical AI)</h2>
+        
+        <!-- Split Image & Text Layout (Matching Reference) -->
+        <div class="split-content-grid">
+          <div class="split-image-container">
+            <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+              <rect width="300" height="220" fill="#091122"/>
+              <circle cx="150" cy="110" r="70" fill="#00a3ff" fill-opacity="0.1"/>
+              <!-- Stylized AI Robot Head Vector -->
+              <circle cx="150" cy="95" r="45" stroke="#00a3ff" stroke-width="2" fill="#0f1f3d"/>
+              <rect x="130" y="85" width="40" height="12" rx="6" fill="#00a3ff"/>
+              <circle cx="138" cy="91" r="3" fill="#ffffff"/>
+              <circle cx="162" cy="91" r="3" fill="#ffffff"/>
+              <path d="M120 160 Q150 140 180 160 L195 210 L105 210 Z" fill="#13274c" stroke="#00a3ff" stroke-width="1.5"/>
+              <text x="150" y="185" fill="#00a3ff" font-size="12" font-family="sans-serif" font-weight="bold" text-anchor="middle">AI</text>
+              <line x1="80" y1="60" x2="110" y2="80" stroke="#00a3ff" stroke-opacity="0.5" stroke-dasharray="3 3"/>
+              <line x1="220" y1="60" x2="190" y2="80" stroke="#00a3ff" stroke-opacity="0.5" stroke-dasharray="3 3"/>
+            </svg>
+          </div>
+          <div>
+            <p class="content-paragraph">يشهد العالم حالياً تحولاً جوهرياً يتجاوز فكرة الأتمتة الميكانيكية التقليدية إلى ما يُعرف بـ "الذكاء الاصطناعي الفيزيائي" (Physical AI). ووفقاً للتعريف المعتمد من مؤسسة البيانات الدولية (IDC)، فإن هذا المصطلح يشير إلى دمج نماذج الذكاء الاصطناعي المتقدمة مباشرة في الروبوتات والآلات المادية، مما يمنحها القدرة الذاتية على استشعار محيطها، التفكير، اتخاذ القرار، والتصرف في العالم الحقيقي بشكل مستقل. لم تعد الروبوتات مجرد آلات ثابتة في خطوط التجميع بالمصانع الكبرى، بل أصبحت شريكاً تفاعلياً في مجالات الضيافة، والخدمات اللوجستية، والرعاية الصحية، والتنظيف المتخصص.</p>
+          </div>
+        </div>
+
+        <p class="content-paragraph">وتدعم الأرقام الصادرة عن التقارير الدولية هذا التسارع المهول؛ إذ تشير تقديرات IDC إلى أن سوق الروبوتات العالمي سيتجاوز ٤٠ مليار دولار بحلول عام ٢٠٢٩، مدفوعاً بنمو هائل لقطاع الروبوتات البشرية (Humanoids) بمعدل نمو سنوي مركب يصل إلى ٩٤٪ حتى عام ٢٠٣٠. كما تضاعفت إيرادات الروبوتات البشرية بنسبة ٥٠٨٪ خلال عام ٢٠٢٥ وحده. ومن جهة أخرى، يوضح تقرير الاتحاد الدولي للروبوتات (IFR) لعام ٢٠٢٥ أن مبيعات الروبوتات الخدمية المهنية سجلت نمواً لافتاً، حيث تصدرت تطبيقات النقل والخدمات اللوجستية القطاع بأكثر من ١٠٢,٩٠٠ وحدة مباعة في عام ٢٠٢٤، تلتها قطاعات الضيافة والتنظيف المهني، مع نمو أسطول روبوتات الخدمة بنموذج التأجير (Robot as a Service) بنسبة ٣١٪، مما يقلل من تكلفة الاستثمار الرأسمالي الأولي ويسرع وتيرة التبني التجاري.</p>
+
+        <!-- 4 Stat Cards Matching Reference Screenshot -->
+        <div class="stats-cards-row">
+          <div class="stat-box-card">
+            <div class="stat-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"></path><rect x="4" y="10" width="16" height="10" rx="4"></rect><circle cx="9" cy="15" r="1"></circle><circle cx="15" cy="15" r="1"></circle></svg>
+            </div>
+            <div class="stat-huge-number">102,900+</div>
+            <div class="stat-caption-txt">وحدة روبوتات خدمية مباعة في عام 2024</div>
+          </div>
+
+          <div class="stat-box-card">
+            <div class="stat-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <div class="stat-huge-number">%508</div>
+            <div class="stat-caption-txt">نمو إيرادات الروبوتات البشرية خلال عام 2025</div>
+          </div>
+
+          <div class="stat-box-card">
+            <div class="stat-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M8 10h8M8 14h8"></path></svg>
+            </div>
+            <div class="stat-huge-number">+40</div>
+            <div class="stat-caption-txt">مليار دولار سوق الروبوتات بحلول 2029</div>
+          </div>
+
+          <div class="stat-box-card">
+            <div class="stat-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            </div>
+            <div class="stat-huge-number">%94</div>
+            <div class="stat-caption-txt">معدل النمو السنوي المركب للروبوتات البشرية حتى 2030</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2 (Verbatim docx content) -->
+      <section id="sec-2">
+        <h2 class="content-section-title">٢. الريادة المبكرة والتطبيقات العملية في السوق الأردني</h2>
+        
+        <p class="content-paragraph">لم يكن السوق الأردني بمعزل عن هذا التوجه التكنولوجي الاستباقي؛ فمنذ عام ٢٠٢١، سجل الأردن دخوله العملي الفعلي لهذا المجال عبر شركة كويل –  ,Quill وهي شركة وطنية رائدة في والأولى في من نوعها في الأردن، التي بدأت كأول جهة تُدخل الروبوتات الخدمية والتجارية إلى بيئة الأعمال الأردنية. هذا التبني المبكر ساهم بشكل ملموس في تغيير الوعي المحلي تجاه الروبوتات، ناقلاً إياها من مجرد نماذج تجريبية أو مشاريع بحثية أكاديمية محدودة إلى أدوات تشغيلية حقيقية تقدم حلولاً لأتمتة المهام وتسهيل الأعمال. وقد حققت شركة كويل - Quill ريادة حقيقية على الأرض عبر محفظة واسعة من التطبيقات والمشاريع المرجعية البارزة في المملكة، والتي تشمل:</p>
+
+        <!-- Stacked Case Studies -->
+        <div class="project-cards-stack">
+          
+          <div class="project-item-card award-special">
+            <div class="project-header-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>مطار الملكة علياء الدولي (QAIA) - جائزة عالمية</span>
+            </div>
+            <p class="project-text-content">مطار الملكة علياء الدولي (QAIA): توريد وتشغيل 4 روبوتات تنظيف ذكية وذاتية الحركة كأول خدمة روبوتية متميزة من نوعها على مستوى مطارات المنطقة، لتعزيز الكفاءة التشغيلية والالتزام بمعايير الاستدامة دون تداخل بشري مباشر. وقد توج هذا المشروع الريادي بجائزة عالمية مرموقة، حيث فاز نظام التنظيف الذكي المطبق بالمطار بجائزة الابتكار التقني لعام 2025 (Technical Innovation Award 2025) من مجلس المطارات الدولي (ACI) بالشراكة مع شركة "أماديوس" (Amadeus)، وذلك عن فئة "أفضل ابتكار في إدارة عمليات المطارات والتجهيزات"، وجرى تسليم الجائزة رسمياً خلال فعاليات مؤتمر "ابتكارات المطارات" في مدينة بوسان بجمهورية كوريا.</p>
+          </div>
+
+          <div class="project-item-card">
+            <div class="project-header-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              <span>وزارة الاقتصاد الرقمي والريادة (MODEE)</span>
+            </div>
+            <p class="project-text-content">وزارة الاقتصاد الرقمي والريادة (MODEE): إدخال روبوت استقبال ذكي وتفاعلي لخدمة وإرشاد المراجعين داخل مراكز الخدمات الحكومية التابعة للوزارة، مما يسهل تجربة المواطنين ويبرز هوية الأردن الرقمية.</p>
+          </div>
+
+          <div class="project-item-card">
+            <div class="project-header-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path></svg>
+              <span>سلطة منطقة العقبة الاقتصادية الخاصة (ASEZA)</span>
+            </div>
+            <p class="project-text-content">سلطة منطقة العقبة الاقتصادية الخاصة (ASEZA): توظيف روبوت تفاعلي مخصص للتواصل مع المستثمرين الأجانب والمحليين، وتقديم شروحات تفاعلية حول المزايا والحوافز الاستثمارية المتاحة وعرض مقومات البيئة الاقتصادية الجاذبة في العقبة.</p>
+          </div>
+
+          <div class="project-item-card">
+            <div class="project-header-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>مؤسسة ولي العهد (Crown Prince Foundation)</span>
+            </div>
+            <p class="project-text-content">مؤسسة ولي العهد (Crown Prince Foundation): في لفتة رمزية تجسد ثقة القيادة بالحلول المستقبلية، استخدم صاحب السمو الملكي الأمير الحسين بن عبدالله الثاني، ولي العهد، روبوتاً ذكياً ومبرمجاً لتدشين وإطلاق الهوية البصرية الجديدة لمؤسسة ولي العهد.</p>
+          </div>
+
+          <div class="project-item-card">
+            <div class="project-header-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+              <span>بوليفارد العبدلي (Abdali Boulevard)</span>
+            </div>
+            <p class="project-text-content">بوليفارد العبدلي (Abdali Boulevard): إطلاق أول مشروع متكامل في الأردن بنظام "الروبوت كخدمة" (Robot-as-a-Service - RaaS). ويشمل المشروع تشغيل روبوت جلي وتلميع ذكي (Scrubbing Robot) لتنظيف مواقف السيارات الكبرى، إلى جانب روبوت كنس وتنظيف ذكي (Sweeping Robot) لتغطية الممرات والمماشي الخارجية والساحات المحيطة بالبوليفارد، مما يحقق كفاءة تشغيلية عالية وحلولاً مؤتمتة بالكامل لإدارة المرافق.</p>
+          </div>
+
+          <div class="project-item-card">
+            <div class="project-header-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+              <span>المستشفى التخصصي (Specialty Hospital)</span>
+            </div>
+            <p class="project-text-content">المستشفى التخصصي (Specialty Hospital): تشغيل أول روبوت استقبال تفاعلي مدعوم بالذكاء الاصطناعي في القطاع الصحي بالأردن. وقد نجح هذا الروبوت في حل مشكلة جوهرية كانت تواجه المراجعين والمتمثلة في عدم معرفة الاتجاهات وكثرة الاستفسارات المتكررة التي كانت تشتت موظفي قسم القبول عن مهامهم الأساسية؛ حيث تولى الروبوت مهمة الإجابة عن الأسئلة الشائعة وإرشاد المرضى، مما ارتقى بتجربة المرضى بشكل ملحوظ ووفر وقت الموظفين وتفرغهم للتركيز على المعاملات الطبية والإدارية الأكثر تعقيداً.</p>
+          </div>
+
+          <div class="project-item-card">
+            <p class="project-text-content">والعديد من الشركات والمؤسسات الرائدة الأخرى:</p>
+          </div>
+
+          <div class="project-item-card" style="border-right: 4px solid var(--brand-primary);">
+            <div class="project-header-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg>
+              <span>الجامعة الأردنية (The University of Jordan)</span>
+            </div>
+            <p class="project-text-content">ولم يقتصر هذا التميز على قطاع الأعمال والخدمات فحسب؛ بل امتد ليتوج برؤية تعليمية مستدامة من خلال افتتاح مختبر متخصص في الجامعة الأردنية (The University of Jordan). يهدف هذا المختبر المبتكر إلى تسليط الضوء على هذه التكنولوجيات الحديثة وإبرازها للطلبة، متيحاً لهم منصة تطبيقية حقيقية للتعرف على تطبيقات الذكاء الاصطناعي الفيزيائي والروبوتات واكتساب مهارات عملية تؤهلهم لريادة متطلبات سوق العمل المستقبلي وتوطين هذه التقنيات محلياً.</p>
+          </div>
+
+        </div>
+
+        <!-- Image Placeholder for Jordan Applications -->
+        <div class="photo-placeholder-box">
+          <div class="photo-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          </div>
+          <span class="photo-badge-lbl">مكان صورة (Image Placeholder)</span>
+          <p class="photo-caption-lbl">صور تطبيقات ومشاريع الروبوتات في الأردن (مطار الملكة علياء / البوليفارد / المستشفى)</p>
+        </div>
+      </section>
+
+      <!-- Section 3 (Verbatim docx content) -->
+      <section id="sec-3">
+        <h2 class="content-section-title">٣. أبعاد الزيارات الملكية: دمج الابتكار بالتعليم والاستثمار</h2>
+        
+        <p class="content-paragraph">تحمل الزيارتان الأخيرتان أبعاداً استراتيجية متكاملة للنهوض بالمنظومة المحلية وعناصر القيمة المضافة فيها:</p>
+
+        <div class="project-item-card" style="margin: 1.5rem 0;">
+          <p class="project-text-content">ركزت زيارة سمو ولي العهد الأمير الحسين إلى إحدى كبرى شركات الاستثمار الجريء المتخصصة في التكنولوجيا العميقة والأنظمة الذكية والمطورة للروبوتات على إبراز المزايا التنافسية للأردن كوجهة تكنولوجية واعدة، والدور المحوري للمجلس الوطني لتكنولوجيا المستقبل في احتضان ودعم المشاريع المتقدمة. وتم بحث تطوير المواهب الأردنية في مجالات دقيقة مثل أشباه الموصلات والحوسبة الكمية وبناء الأنظمة الذكية. في المقابل، هدفت زيارة جلالة الملك عبدالله الثاني لكبرى شركات الروبوتات والذكاء الاصطناعي في شنغهاي إلى بناء قنوات اتصال مباشرة وتطوير برامج تعاونية تجمع بين مطوري الروبوتات المتقدمة وبين الجامعات والمؤسسات الأردنية لتطوير التطبيقات الروبوتية المخصصة للاحتياجات المحلية وتسهيل تبادل الخبرات العملية، وهو ما ينسجم تماماً مع خطوة افتتاح مختبر الروبوتات بالجامعة الأردنية كخطوة تفعيلية أولى.</p>
+        </div>
+
+        <!-- Image Placeholder for Royal Visits -->
+        <div class="photo-placeholder-box">
+          <div class="photo-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <span class="photo-badge-lbl">مكان صورة (Image Placeholder)</span>
+          <p class="photo-caption-lbl">صورة الزيارات الملكية الاستراتيجية في وادي السيليكون وشنغهاي ومختبر الروبوتات</p>
+        </div>
+      </section>
+
+      <!-- Section 4 (Verbatim docx content) -->
+      <section id="sec-4">
+        <h2 class="content-section-title">٤. أين تكمن فرصة الأردن الحقيقية في سلسلة القيمة؟</h2>
+        
+        <p class="content-paragraph">تكمن الفرصة الذهبية للأردن في الطبقات العليا والأكثر ربحية في سلسلة قيمة الذكاء الاصطناعي الفيزيائي، والتي تتطابق مع المهارات والقدرات المحلية:</p>
+
+        <!-- 2x2 Pillars Grid -->
+        <div class="pillars-2x2-grid">
+          
+          <div class="pillar-box-card">
+            <div class="pillar-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <div class="pillar-title-text">برمجيات الذكاء الاصطناعي والتحكم (Software Platforms):</div>
+            <div class="pillar-desc-text">تطوير البرمجيات المخصصة وخوارزميات الذكاء الاصطناعي التي تدير الروبوتات وتوجه حركتها وتتحكم ببياناتها.</div>
+          </div>
+
+          <div class="pillar-box-card">
+            <div class="pillar-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect></svg>
+            </div>
+            <div class="pillar-title-text">تطوير التطبيقات والتخصيص (Application Development):</div>
+            <div class="pillar-desc-text">تكييف الروبوتات العالمية لتتناسب مع الاحتياجات التشغيلية الخاصة بقطاعات الضيافة واللوجستيات والمطارات والرعاية الصحية في السوق المحلي والإقليمي.</div>
+          </div>
+
+          <div class="pillar-box-card">
+            <div class="pillar-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+            </div>
+            <div class="pillar-title-text">التكامل والربط التقني (System Integration):</div>
+            <div class="pillar-desc-text">دمج الحلول الروبوتية مع الأنظمة والبرمجيات السحابية القائمة داخل المؤسسات لضمان انسيابية البيانات والتشغيل.</div>
+          </div>
+
+          <div class="pillar-box-card">
+            <div class="pillar-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </div>
+            <div class="pillar-title-text">خدمات التشغيل والدعم (Services & Support):</div>
+            <div class="pillar-desc-text">تقديم الصيانة الفنية المتخصصة والتدريب للكوادر البشرية ونشر نماذج أعمال مرنة مثل خدمات الروبوتات كخدمة (RaaS).</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Conclusion (Verbatim docx content) -->
+      <section id="sec-conclusion">
+        <div class="conclusion-showcase-box">
+          <h2 class="conclusion-heading">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            خاتمة: من الاستخدام الفردي إلى صناعة القيمة
+          </h2>
+          <p class="content-paragraph" style="margin-bottom:0;">إن السؤال الاستراتيجي الأبرز الذي يجب أن نطرحه اليوم ليس: "كم عدد الروبوتات التي يمكن للأردن استيرادها واستخدامها؟" بل: "كم هي القيمة المضافة والفرص الاقتصادية والوظائف والشركات الناشئة التي يمكن للمملكة ابتكارها وتطويرها حول هذه الروبوتات؟" إن الفارق الاستراتيجي بين السؤالين شاسع؛ فالأول يقيس معدلات الاستهلاك للمنتجات العالمية، بينما يقيس الثاني القدرة الإنتاجية والتكنولوجية الحقيقية للاقتصاد الوطني.تعد الزيارات الملكية الأخيرة بمثابة ضوء أخضر قوي ودعوة واضحة لبناء شراكات حقيقية ومثمرة بين القطاع الخاص، الجامعات الأردنية (والتي بدأت بالفعل بأخذ زمام المبادرة عبر مختبراتها الجديدة)، والمستثمرين العالميين لتوطين المعرفة، وبناء قطاع روبوتات أردني متكامل قادر على تصدير الحلول التكنولوجية الذكية لأسواق المنطقة برمتها.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 2. Left Column: Sidebar Widgets (Matching Reference Design) -->
+    <aside class="sidebar-sticky-col">
+      
+      <!-- Widget 1: Search Input -->
+      <div class="sidebar-search-box">
+        <input type="text" class="sidebar-search-input" placeholder="ابحث في المدونة...">
+        <div class="sidebar-search-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </div>
+      </div>
+
+      <!-- Widget 2: Categories List -->
+      <div class="sidebar-widget-card">
+        <h3 class="widget-title-head">الفئات</h3>
+        <ul class="categories-menu-list">
+          <li>
+            <a href="#" class="category-row-item active">
+              <span>• رؤية & مستقبل</span>
+              <span class="cat-count-badge">12</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="category-row-item">
+              <span>الذكاء الاصطناعي</span>
+              <span class="cat-count-badge">18</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="category-row-item">
+              <span>الروبوتات</span>
+              <span class="cat-count-badge">15</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="category-row-item">
+              <span>ريادة الأعمال</span>
+              <span class="cat-count-badge">10</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="category-row-item">
+              <span>التحول الرقمي</span>
+              <span class="cat-count-badge">8</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="category-row-item">
+              <span>أخبار وتقارير</span>
+              <span class="cat-count-badge">9</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Widget 3: Popular Articles -->
+      <div class="sidebar-widget-card">
+        <h3 class="widget-title-head">مقالات شائعة</h3>
+        <div class="popular-articles-list">
+          
+          <a href="#" class="popular-article-item">
+            <div class="popular-thumb-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00a3ff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            </div>
+            <div class="popular-article-info">
+              <div class="popular-article-title">كيف تُغير الروبوتات مستقبل قطاع الضيافة؟</div>
+              <div class="popular-article-date">5 أغسطس 2026</div>
+            </div>
+          </a>
+
+          <a href="#" class="popular-article-item">
+            <div class="popular-thumb-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00a3ff" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            </div>
+            <div class="popular-article-info">
+              <div class="popular-article-title">الذكاء الاصطناعي في الرعاية الصحية</div>
+              <div class="popular-article-date">1 أغسطس 2026</div>
+            </div>
+          </a>
+
+          <a href="#" class="popular-article-item">
+            <div class="popular-thumb-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00a3ff" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+            </div>
+            <div class="popular-article-info">
+              <div class="popular-article-title">الروبوتات البشرية: الفرص والتحديات</div>
+              <div class="popular-article-date">28 يوليو 2026</div>
+            </div>
+          </a>
+
+          <a href="#" class="popular-article-item">
+            <div class="popular-thumb-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00a3ff" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+            </div>
+            <div class="popular-article-info">
+              <div class="popular-article-title">التحول الرقمي في القطاع الحكومي</div>
+              <div class="popular-article-date">15 يوليو 2026</div>
+            </div>
+          </a>
+
+        </div>
+
+        <a href="#" class="view-more-link">
+          <span>عرض المزيد</span>
+          <span>←</span>
+        </a>
+      </div>
+
+      <!-- Widget 4: Newsletter Subscription -->
+      <div class="newsletter-card-box">
+        <div class="newsletter-icon-circle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </div>
+        <h4 class="newsletter-title-txt">اشترك في نشرتنا البريدية</h4>
+        <p class="newsletter-desc-txt">احصل على أحدث المقالات والأخبار مباشرة إلى بريدك الإلكتروني.</p>
+        <input type="email" class="newsletter-input-field" placeholder="أدخل بريدك الإلكتروني">
+        <button class="newsletter-submit-btn">اشتراك الآن</button>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- Floating Mobile / Screen Actions Bar -->
+  <div class="floating-mobile-bar">
+    <button class="floating-action-icon share-btn-wa" title="مشاركة واتساب">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </button>
+    <button class="floating-action-icon share-btn-tw" title="مشاركة X">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </button>
+    <button class="floating-action-icon share-btn-cp" title="نسخ الرابط">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+    </button>
+    <button class="floating-action-icon font-size-cycle-btn" title="تغيير حجم الخط">
+      <span style="font-family:sans-serif; font-size:13px; font-weight:bold;">A±</span>
+    </button>
+    <button class="floating-action-icon theme-toggle-btn" title="تبديل الوضع">
+      <span class="theme-icon-slot">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </span>
+    </button>
+  </div>
+
+  <!-- Footer (Matching Reference Design) -->
+  <footer class="site-footer-area">
+    <div class="footer-top-container">
+      
+      <!-- Col 1: Brand -->
+      <div>
+        <a href="#" class="nav-logo-link">
+          <!-- White Logo in Footer -->
+          <img src="https://uploads.onecompiler.io/43n8uttmw/1787401723231/unnamed%20(2).png" 
+               alt="شعار الموقع" 
+               class="logo-img" 
+               id="footer-site-logo">
+        </a>
+        <p class="footer-brand-p">منصة معرفية تهتم بالتكنولوجيا والابتكار ومستقبل الذكاء الاصطناعي والروبوتات.</p>
+        <div class="footer-social-row">
+          <a href="#" class="footer-social-icon" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+          <a href="#" class="footer-social-icon" title="X"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="footer-social-icon" title="YouTube"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+          <a href="#" class="footer-social-icon" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div>
+        <h4 class="footer-col-title">روابط سريعة</h4>
+        <ul class="footer-menu-links">
+          <li><a href="#">الرئيسية</a></li>
+          <li><a href="#">كل المقالات</a></li>
+          <li><a href="#">عن المدونة</a></li>
+          <li><a href="#">اتصل بنا</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Categories -->
+      <div>
+        <h4 class="footer-col-title">الفئات</h4>
+        <ul class="footer-menu-links">
+          <li><a href="#">رؤية & مستقبل</a></li>
+          <li><a href="#">الذكاء الاصطناعي</a></li>
+          <li><a href="#">الروبوتات</a></li>
+          <li><a href="#">ريادة الأعمال</a></li>
+          <li><a href="#">التحول الرقمي</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Follow Us -->
+      <div>
+        <h4 class="footer-col-title">تابعنا</h4>
+        <p style="font-size:0.88rem; color:#94a3b8; line-height:1.7;">كن على اطلاع بآخر المقالات والتحديثات في عالم التكنولوجيا.</p>
+        <form class="footer-subscribe-form" onsubmit="event.preventDefault();">
+          <input type="email" class="footer-email-input" placeholder="أدخل بريدك الإلكتروني">
+          <button type="submit" class="footer-submit-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom-bar">
+      <span>2026 © جميع الحقوق محفوظة - مدونة</span>
+      <div>
+        <a href="#" style="color:#94a3b8; margin-left:12px;">سياسة الخصوصية</a>
+        <span style="color:#475569;">|</span>
+        <a href="#" style="color:#94a3b8; margin-right:12px;">شروط الاستخدام</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
