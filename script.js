@@ -1,6 +1,6 @@
 /**
  * Interactive Script for Jordan Robotics Strategy Article
- * Handles dynamic font scaling, pinned action bar, theme toggle & logo switching.
+ * Handles dynamic font scaling, pinned action bar, WhatsApp direct chat, Web Share API & theme toggle.
  */
 
 const WHITE_LOGO_URL = 'https://uploads.onecompiler.io/43n8uttmw/1787401723231/unnamed%20(2).png';
@@ -109,18 +109,17 @@ function initFontScaler() {
   }
 }
 
-/* 4. Social Sharing & Links */
+/* 4. Social Sharing & WhatsApp to 0775622282 & Native Share */
 function initSocialSharing() {
-  const url = window.location.href;
-  const title = document.title;
-
+  // WhatsApp opens directly to 0775622282 (+962775622282)
   document.querySelectorAll('.share-btn-wa').forEach(b => {
     b.addEventListener('click', (e) => {
       e.preventDefault();
-      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' ' + url)}`, '_blank');
+      window.open('https://wa.me/962775622282', '_blank');
     });
   });
 
+  // Facebook
   document.querySelectorAll('.share-btn-fb').forEach(b => {
     b.addEventListener('click', (e) => {
       e.preventDefault();
@@ -128,6 +127,7 @@ function initSocialSharing() {
     });
   });
 
+  // LinkedIn
   document.querySelectorAll('.share-btn-in').forEach(b => {
     b.addEventListener('click', (e) => {
       e.preventDefault();
@@ -135,6 +135,7 @@ function initSocialSharing() {
     });
   });
 
+  // Instagram
   document.querySelectorAll('.share-btn-ig').forEach(b => {
     b.addEventListener('click', (e) => {
       e.preventDefault();
@@ -142,14 +143,31 @@ function initSocialSharing() {
     });
   });
 
-  document.querySelectorAll('.share-btn-cp').forEach(b => {
+  // Universal Share Button (Uses Web Share API on mobile / falls back to clipboard)
+  document.querySelectorAll('.share-btn-native').forEach(b => {
     b.addEventListener('click', async (e) => {
       e.preventDefault();
-      try {
-        await navigator.clipboard.writeText(url);
-        showToastNotice('تم نسخ رابط المقال بنجاح!');
-      } catch (err) {
-        showToastNotice('رابط المقال: ' + url);
+      const pageTitle = document.title;
+      const pageUrl = window.location.href;
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: pageTitle,
+            text: pageTitle,
+            url: pageUrl
+          });
+        } catch (err) {
+          // User closed share dialog without action
+        }
+      } else {
+        // Desktop / non-supported browser fallback to copy link
+        try {
+          await navigator.clipboard.writeText(pageUrl);
+          showToastNotice('تم نسخ رابط المقال بنجاح!');
+        } catch (err) {
+          showToastNotice('رابط المقال: ' + pageUrl);
+        }
       }
     });
   });
