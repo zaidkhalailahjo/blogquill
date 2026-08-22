@@ -14,7 +14,7 @@
   <style>
 /* ==========================================================================
    Modern Editorial Theme - Jordan Robotics Strategy
-   نسخة مخصصة محسنة وسريعة الاستجابة بالكامل
+   نسخة مخصصة محسنة وسريعة الاستجابة بالكامل مع تأثيرات الظهور عند التمرير
    ========================================================================== */
 
 :root {
@@ -526,7 +526,7 @@ img {
 .project-cards-stack {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
   margin: 1.75rem 0;
 }
 
@@ -534,7 +534,7 @@ img {
   background: var(--bg-card-subtle);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 20px 24px;
+  padding: 22px 24px;
   transition: var(--transition);
 }
 
@@ -557,7 +557,31 @@ img {
   font-weight: 700;
   font-size: 1.02rem;
   color: var(--brand-primary);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+/* Crown Prince Image Card Visual */
+.project-featured-visual {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 10px 0 14px 0;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  background: #090e1a;
+  max-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card-image {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
 }
 
 /* Open, Borderless, Free-Flowing Moving Client Logos Carousel */
@@ -675,6 +699,19 @@ img {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+/* Scroll Reveal Smooth Effects */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Clean Footer */
@@ -831,6 +868,14 @@ img {
     font-size: 0.76rem;
   }
 
+  .project-featured-visual {
+    max-height: 240px;
+  }
+
+  .project-card-image {
+    max-height: 240px;
+  }
+
   .logos-marquee-track {
     gap: 22px;
   }
@@ -917,7 +962,7 @@ img {
     <article class="article-main-card">
       
       <!-- Article Header -->
-      <div class="article-card-header">
+      <div class="article-card-header reveal-on-scroll">
         <div class="article-top-meta">
           <!-- Author Info -->
           <div class="author-info-group">
@@ -928,7 +973,7 @@ img {
           <!-- Badges: Date, 10 Minutes, Category -->
           <div class="article-badges-row">
             <span class="badge-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
               <span>20 أغسطس 2026</span>
             </span>
             <span class="badge-item">
@@ -984,9 +1029,9 @@ img {
 
       <!-- Section 1 (Verbatim docx content) -->
       <section id="sec-1">
-        <h2 class="content-section-title">١. الثورة العالمية للذكاء الاصطناعي الفيزيائي (Physical AI)</h2>
+        <h2 class="content-section-title reveal-on-scroll">١. الثورة العالمية للذكاء الاصطناعي الفيزيائي (Physical AI)</h2>
         
-        <div class="split-content-grid">
+        <div class="split-content-grid reveal-on-scroll">
           <div class="split-image-container">
             <svg viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
               <rect width="300" height="200" fill="#091122"/>
@@ -1004,11 +1049,11 @@ img {
           </div>
         </div>
 
-        <p class="content-paragraph">وتدعم الأرقام الصادرة عن التقارير الدولية هذا التسارع المهول؛ إذ تشير تقديرات IDC إلى أن سوق الروبوتات العالمي سيتجاوز ٤٠ مليار دولار بحلول عام ٢٠٢٩، مدفوعاً بنمو هائل لقطاع الروبوتات البشرية (Humanoids) بمعدل نمو سنوي مركب يصل إلى ٩٤٪ حتى عام ٢٠٣٠. كما تضاعفت إيرادات الروبوتات البشرية بنسبة ٥٠٨٪ خلال عام ٢٠٢٥ وحده. ومن جهة أخرى، يوضح تقرير الاتحاد الدولي للروبوتات (IFR) لعام ٢٠٢٥ أن مبيعات الروبوتات الخدمية المهنية سجلت نمواً لافتاً، حيث تصدرت تطبيقات النقل والخدمات اللوجستية القطاع بأكثر من ١٠٢,٩٠٠ وحدة مباعة في عام ٢٠٢٤، تلتها قطاعات الضيافة والتنظيف المهني، مع نمو أسطول روبوتات الخدمة بنموذج التأجير (Robot as a Service) بنسبة ٣١٪، مما يقلل من تكلفة الاستثمار الرأسمالي الأولي ويسرع وتيرة التبني التجاري.</p>
+        <p class="content-paragraph reveal-on-scroll">وتدعم الأرقام الصادرة عن التقارير الدولية هذا التسارع المهول؛ إذ تشير تقديرات IDC إلى أن سوق الروبوتات العالمي سيتجاوز ٤٠ مليار دولار بحلول عام ٢٠٢٩، مدفوعاً بنمو هائل لقطاع الروبوتات البشرية (Humanoids) بمعدل نمو سنوي مركب يصل إلى ٩٤٪ حتى عام ٢٠٣٠. كما تضاعفت إيرادات الروبوتات البشرية بنسبة ٥٠٨٪ خلال عام ٢٠٢٥ وحده. ومن جهة أخرى، يوضح تقرير الاتحاد الدولي للروبوتات (IFR) لعام ٢٠٢٥ أن مبيعات الروبوتات الخدمية المهنية سجلت نمواً لافتاً، حيث تصدرت تطبيقات النقل والخدمات اللوجستية القطاع بأكثر من ١٠٢,٩٠٠ وحدة مباعة في عام ٢٠٢٤، تلتها قطاعات الضيافة والتنظيف المهني، مع نمو أسطول روبوتات الخدمة بنموذج التأجير (Robot as a Service) بنسبة ٣١٪، مما يقلل من تكلفة الاستثمار الرأسمالي الأولي ويسرع وتيرة التبني التجاري.</p>
 
         <!-- 4 Stat Cards -->
         <div class="stats-cards-row">
-          <div class="stat-box-card">
+          <div class="stat-box-card reveal-on-scroll">
             <div class="stat-icon-wrap">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"></path><rect x="4" y="10" width="16" height="10" rx="4"></rect><circle cx="9" cy="15" r="1"></circle><circle cx="15" cy="15" r="1"></circle></svg>
             </div>
@@ -1016,7 +1061,7 @@ img {
             <div class="stat-caption-txt">وحدة روبوتات خدمية مباعة في عام 2024</div>
           </div>
 
-          <div class="stat-box-card">
+          <div class="stat-box-card reveal-on-scroll">
             <div class="stat-icon-wrap">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
             </div>
@@ -1024,7 +1069,7 @@ img {
             <div class="stat-caption-txt">نمو إيرادات الروبوتات البشرية خلال عام 2025</div>
           </div>
 
-          <div class="stat-box-card">
+          <div class="stat-box-card reveal-on-scroll">
             <div class="stat-icon-wrap">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M8 10h8M8 14h8"></path></svg>
             </div>
@@ -1032,7 +1077,7 @@ img {
             <div class="stat-caption-txt">مليار دولار سوق الروبوتات بحلول 2029</div>
           </div>
 
-          <div class="stat-box-card">
+          <div class="stat-box-card reveal-on-scroll">
             <div class="stat-icon-wrap">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
             </div>
@@ -1042,17 +1087,32 @@ img {
         </div>
       </section>
 
-      <!-- Section 2: Exact reordered milestones -->
+      <!-- Section 2: Exact reordered milestones with Crown Prince Foundation First -->
       <section id="sec-2">
-        <h2 class="content-section-title">٢. الريادة المبكرة والتطبيقات العملية في السوق الأردني</h2>
+        <h2 class="content-section-title reveal-on-scroll">٢. الريادة المبكرة والتطبيقات العملية في السوق الأردني</h2>
         
-        <p class="content-paragraph">لم يكن السوق الأردني بمعزل عن هذا التوجه التكنولوجي الاستباقي؛ فمنذ عام ٢٠٢١، سجل الأردن دخوله العملي الفعلي لهذا المجال عبر شركة كويل –  ,Quill وهي شركة وطنية رائدة في والأولى في من نوعها في الأردن، التي بدأت كأول جهة تُدخل الروبوتات الخدمية والتجارية إلى بيئة الأعمال الأردنية. هذا التبني المبكر ساهم بشكل ملموس في تغيير الوعي المحلي تجاه الروبوتات، ناقلاً إياها من مجرد نماذج تجريبية أو مشاريع بحثية أكاديمية محدودة إلى أدوات تشغيلية حقيقية تقدم حلولاً لأتمتة المهام وتسهيل الأعمال. وقد حققت شركة كويل - Quill ريادة حقيقية على الأرض عبر محفظة واسعة من التطبيقات والمشاريع المرجعية البارزة في المملكة، والتي تشمل:</p>
+        <p class="content-paragraph reveal-on-scroll">لم يكن السوق الأردني بمعزل عن هذا التوجه التكنولوجي الاستباقي؛ فمنذ عام ٢٠٢١، سجل الأردن دخوله العملي الفعلي لهذا المجال عبر شركة كويل –  ,Quill وهي شركة وطنية رائدة في والأولى في من نوعها في الأردن، التي بدأت كأول جهة تُدخل الروبوتات الخدمية والتجارية إلى بيئة الأعمال الأردنية. هذا التبني المبكر ساهم بشكل ملموس في تغيير الوعي المحلي تجاه الروبوتات، ناقلاً إياها من مجرد نماذج تجريبية أو مشاريع بحثية أكاديمية محدودة إلى أدوات تشغيلية حقيقية تقدم حلولاً لأتمتة المهام وتسهيل الأعمال. وقد حققت شركة كويل - Quill ريادة حقيقية على الأرض عبر محفظة واسعة من التطبيقات والمشاريع المرجعية البارزة في المملكة، والتي تشمل:</p>
 
-        <!-- Stacked Case Studies in Exact Order -->
+        <!-- Stacked Case Studies in Exact User Order -->
         <div class="project-cards-stack">
           
-          <!-- 1. Queen Alia International Airport -->
-          <div class="project-item-card award-special">
+          <!-- 1. Crown Prince Foundation (Placed FIRST above QAIA as requested) with Image -->
+          <div class="project-item-card reveal-on-scroll">
+            <div class="project-header-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>مؤسسة ولي العهد (Crown Prince Foundation)</span>
+            </div>
+            <!-- Elegant Image for Crown Prince Foundation -->
+            <div class="project-featured-visual">
+              <img src="https://uploads.onecompiler.io/44krdug5q/44yyyytca/HRH%20Prince%20AlHussain%20Bin%20Abdullah%20II.PNG" 
+                   alt="صاحب السمو الملكي الأمير الحسين بن عبدالله الثاني ولي العهد" 
+                   class="project-card-image">
+            </div>
+            <p class="project-text-content">مؤسسة ولي العهد (Crown Prince Foundation): في لفتة رمزية تجسد ثقة القيادة بالحلول المستقبلية، استخدم صاحب السمو الملكي الأمير الحسين بن عبدالله الثاني، ولي العهد، روبوتاً ذكياً ومبرمجاً لتدشين وإطلاق الهوية البصرية الجديدة لمؤسسة ولي العهد.</p>
+          </div>
+
+          <!-- 2. Queen Alia International Airport -->
+          <div class="project-item-card award-special reveal-on-scroll">
             <div class="project-header-badge">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
               <span>مطار الملكة علياء الدولي (QAIA)</span>
@@ -1060,17 +1120,8 @@ img {
             <p class="project-text-content">مطار الملكة علياء الدولي (QAIA): توريد وتشغيل 4 روبوتات تنظيف ذكية وذاتية الحركة كأول خدمة روبوتية متميزة من نوعها على مستوى مطارات المنطقة، لتعزيز الكفاءة التشغيلية والالتزام بمعايير الاستدامة دون تداخل بشري مباشر. وقد توج هذا المشروع الريادي بجائزة عالمية مرموقة، حيث فاز نظام التنظيف الذكي المطبق بالمطار بجائزة الابتكار التقني لعام 2025 (Technical Innovation Award 2025) من مجلس المطارات الدولي (ACI) بالشراكة مع شركة "أماديوس" (Amadeus)، وذلك عن فئة "أفضل ابتكار في إدارة عمليات المطارات والتجهيزات"، وجرى تسليم الجائزة رسمياً خلال فعاليات مؤتمر "ابتكارات المطارات" في مدينة بوسان بجمهورية كوريا.</p>
           </div>
 
-          <!-- 2. Crown Prince Foundation -->
-          <div class="project-item-card">
-            <div class="project-header-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <span>مؤسسة ولي العهد (Crown Prince Foundation)</span>
-            </div>
-            <p class="project-text-content">مؤسسة ولي العهد (Crown Prince Foundation): في لفتة رمزية تجسد ثقة القيادة بالحلول المستقبلية، استخدم صاحب السمو الملكي الأمير الحسين بن عبدالله الثاني، ولي العهد، روبوتاً ذكياً ومبرمجاً لتدشين وإطلاق الهوية البصرية الجديدة لمؤسسة ولي العهد.</p>
-          </div>
-
           <!-- 3. Abdali Boulevard -->
-          <div class="project-item-card">
+          <div class="project-item-card reveal-on-scroll">
             <div class="project-header-badge">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
               <span>بوليفارد العبدلي (Abdali Boulevard)</span>
@@ -1079,7 +1130,7 @@ img {
           </div>
 
           <!-- 4. Specialty Hospital -->
-          <div class="project-item-card">
+          <div class="project-item-card reveal-on-scroll">
             <div class="project-header-badge">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
               <span>المستشفى التخصصي (Specialty Hospital)</span>
@@ -1088,7 +1139,7 @@ img {
           </div>
 
           <!-- 5. Ministry of Digital Economy and Entrepreneurship (MODEE) -->
-          <div class="project-item-card">
+          <div class="project-item-card reveal-on-scroll">
             <div class="project-header-badge">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
               <span>وزارة الاقتصاد الرقمي والريادة (MODEE)</span>
@@ -1097,7 +1148,7 @@ img {
           </div>
 
           <!-- 6. Aqaba Special Economic Zone Authority (ASEZA) -->
-          <div class="project-item-card">
+          <div class="project-item-card reveal-on-scroll">
             <div class="project-header-badge">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path></svg>
               <span>سلطة منطقة العقبة الاقتصادية الخاصة (ASEZA)</span>
@@ -1106,7 +1157,7 @@ img {
           </div>
 
           <!-- 7. Many Other Companies & Open Free-Flowing Moving Client Logos Carousel -->
-          <div class="project-item-card">
+          <div class="project-item-card reveal-on-scroll">
             <p class="project-text-content" style="font-weight:700; margin-bottom:4px;">والعديد من الشركات والمؤسسات الرائدة الأخرى:</p>
             
             <!-- Open Borderless Free-flowing Moving Marquee of All 9 Client Logos -->
@@ -1174,7 +1225,7 @@ img {
           </div>
 
           <!-- 8. University of Jordan -->
-          <div class="project-item-card" style="border-right: 4px solid var(--brand-primary);">
+          <div class="project-item-card reveal-on-scroll" style="border-right: 4px solid var(--brand-primary);">
             <div class="project-header-badge">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg>
               <span>الجامعة الأردنية (The University of Jordan)</span>
@@ -1187,25 +1238,25 @@ img {
 
       <!-- Section 3 (Verbatim docx content) -->
       <section id="sec-3">
-        <h2 class="content-section-title">٣. أبعاد الزيارات الملكية: دمج الابتكار بالتعليم والاستثمار</h2>
+        <h2 class="content-section-title reveal-on-scroll">٣. أبعاد الزيارات الملكية: دمج الابتكار بالتعليم والاستثمار</h2>
         
-        <p class="content-paragraph">تحمل الزيارتان الأخيرتان أبعاداً استراتيجية متكاملة للنهوض بالمنظومة المحلية وعناصر القيمة المضافة فيها:</p>
+        <p class="content-paragraph reveal-on-scroll">تحمل الزيارتان الأخيرتان أبعاداً استراتيجية متكاملة للنهوض بالمنظومة المحلية وعناصر القيمة المضافة فيها:</p>
 
-        <div class="project-item-card" style="margin: 1.5rem 0;">
+        <div class="project-item-card reveal-on-scroll" style="margin: 1.5rem 0;">
           <p class="project-text-content">ركزت زيارة سمو ولي العهد الأمير الحسين إلى إحدى كبرى شركات الاستثمار الجريء المتخصصة في التكنولوجيا العميقة والأنظمة الذكية والمطورة للروبوتات على إبراز المزايا التنافسية للأردن كوجهة تكنولوجية واعدة، والدور المحوري للمجلس الوطني لتكنولوجيا المستقبل في احتضان ودعم المشاريع المتقدمة. وتم بحث تطوير المواهب الأردنية في مجالات دقيقة مثل أشباه الموصلات والحوسبة الكمية وبناء الأنظمة الذكية. في المقابل، هدفت زيارة جلالة الملك عبدالله الثاني لكبرى شركات الروبوتات والذكاء الاصطناعي في شنغهاي إلى بناء قنوات اتصال مباشرة وتطوير برامج تعاونية تجمع بين مطوري الروبوتات المتقدمة وبين الجامعات والمؤسسات الأردنية لتطوير التطبيقات الروبوتية المخصصة للاحتياجات المحلية وتسهيل تبادل الخبرات العملية، وهو ما ينسجم تماماً مع خطوة افتتاح مختبر الروبوتات بالجامعة الأردنية كخطوة تفعيلية أولى.</p>
         </div>
       </section>
 
       <!-- Section 4 (Verbatim docx content) -->
       <section id="sec-4">
-        <h2 class="content-section-title">٤. أين تكمن فرصة الأردن الحقيقية في سلسلة القيمة؟</h2>
+        <h2 class="content-section-title reveal-on-scroll">٤. أين تكمن فرصة الأردن الحقيقية في سلسلة القيمة؟</h2>
         
-        <p class="content-paragraph">تكمن الفرصة الذهبية للأردن في الطبقات العليا والأكثر ربحية في سلسلة قيمة الذكاء الاصطناعي الفيزيائي، والتي تتطابق مع المهارات والقدرات المحلية:</p>
+        <p class="content-paragraph reveal-on-scroll">تكمن الفرصة الذهبية للأردن في الطبقات العليا والأكثر ربحية في سلسلة قيمة الذكاء الاصطناعي الفيزيائي، والتي تتطابق مع المهارات والقدرات المحلية:</p>
 
         <!-- 2x2 Pillars Grid -->
         <div class="pillars-2x2-grid">
           
-          <div class="pillar-box-card">
+          <div class="pillar-box-card reveal-on-scroll">
             <div class="pillar-icon-circle">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
             </div>
@@ -1213,7 +1264,7 @@ img {
             <div class="pillar-desc-text">تطوير البرمجيات المخصصة وخوارزميات الذكاء الاصطناعي التي تدير الروبوتات وتوجه حركتها وتتحكم ببياناتها.</div>
           </div>
 
-          <div class="pillar-box-card">
+          <div class="pillar-box-card reveal-on-scroll">
             <div class="pillar-icon-circle">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect></svg>
             </div>
@@ -1221,7 +1272,7 @@ img {
             <div class="pillar-desc-text">تكييف الروبوتات العالمية لتتناسب مع الاحتياجات التشغيلية الخاصة بقطاعات الضيافة واللوجستيات والمطارات والرعاية الصحية في السوق المحلي والإقليمي.</div>
           </div>
 
-          <div class="pillar-box-card">
+          <div class="pillar-box-card reveal-on-scroll">
             <div class="pillar-icon-circle">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
             </div>
@@ -1229,7 +1280,7 @@ img {
             <div class="pillar-desc-text">دمج الحلول الروبوتية مع الأنظمة والبرمجيات السحابية القائمة داخل المؤسسات لضمان انسيابية البيانات والتشغيل.</div>
           </div>
 
-          <div class="pillar-box-card">
+          <div class="pillar-box-card reveal-on-scroll">
             <div class="pillar-icon-circle">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
             </div>
@@ -1242,7 +1293,7 @@ img {
 
       <!-- Conclusion (Verbatim docx content) -->
       <section id="sec-conclusion">
-        <div class="conclusion-showcase-box">
+        <div class="conclusion-showcase-box reveal-on-scroll">
           <h2 class="conclusion-heading">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             خاتمة: من الاستخدام الفردي إلى صناعة القيمة
@@ -1330,7 +1381,7 @@ img {
 /**
  * Interactive Script for Jordan Robotics Strategy Article
  * Handles dynamic font scaling, pinned action bar, WhatsApp direct chat, Web Share API,
- * and Free-flow Draggable Touch-enabled Logo Carousel.
+ * scroll reveal animations, and Free-flow Draggable Logo Carousel.
  */
 
 const WHITE_LOGO_URL = 'https://uploads.onecompiler.io/43n8uttmw/1787401723231/unnamed%20(2).png';
@@ -1342,6 +1393,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSocialSharing();
   initBookmarks();
   initFreeFlowDraggableLogos();
+  initScrollReveal();
 });
 
 /* 1. Theme Management */
@@ -1489,7 +1541,7 @@ function initSocialSharing() {
             url: pageUrl
           });
         } catch (err) {
-          // Dialog dismissed
+          // Dismissed
         }
       } else {
         try {
@@ -1534,7 +1586,7 @@ function initFreeFlowDraggableLogos() {
   if (!wrapper || !track) return;
 
   let currentOffset = 0;
-  const speed = 0.85; // Auto-scroll speed
+  const speed = 0.85;
   let isDragging = false;
   let startX = 0;
   let dragStartOffset = 0;
@@ -1602,6 +1654,31 @@ function initFreeFlowDraggableLogos() {
   wrapper.addEventListener('touchend', () => {
     isDragging = false;
   }, { passive: true });
+}
+
+/* 7. Scroll Reveal Animation for delightful reading experience */
+function initScrollReveal() {
+  const elements = document.querySelectorAll('.reveal-on-scroll');
+  if (!elements.length) return;
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    elements.forEach(el => observer.observe(el));
+  } else {
+    // Fallback for older browsers
+    elements.forEach(el => el.classList.add('is-revealed'));
+  }
 }
 
 function showToastNotice(msg) {
